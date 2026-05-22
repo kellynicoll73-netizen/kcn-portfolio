@@ -236,7 +236,7 @@
    Images always crop to fill — never stretch or squash.
    ============================================================ */
 .cs-img-placeholder {
-    background-color: #ffffff;
+    background-color: var(--color-light-grey);
     display: flex;
     align-items: center;
     justify-content: center;
