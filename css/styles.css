@@ -1,0 +1,616 @@
+/* ============================================================
+   Design tokens
+   ============================================================ */
+:root {
+    --color-dark-blue:  #1F3864;
+    --color-light-blue: #2E74B5;
+    --color-white:      #FFFFFF;
+    --color-near-black: #1A1A1A;
+    --color-mid-grey:   #5F5F5F;
+    --color-light-grey: #F0F0F0;
+    --font:             'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --nav-height:       60px;
+    --nav-offset:       30px;
+}
+
+/* ============================================================
+   Reset & base
+   ============================================================ */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: var(--font);
+    font-size: 16px;
+    color: var(--color-near-black);
+    background-color: var(--color-light-grey);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    min-height: 100vh;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Screen-reader only utility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ============================================================
+   Navigation
+   ============================================================ */
+.site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: calc(var(--nav-height) + var(--nav-offset));
+    padding-top: var(--nav-offset);
+    background-color: var(--color-white);
+    display: grid;
+    grid-template-columns: 35% 65%;
+    align-items: center;
+    z-index: 100;
+}
+
+/* Left: identity link */
+.nav-identity {
+    display: flex;
+    align-items: baseline;
+    color: var(--color-dark-blue);
+    white-space: nowrap;
+    padding-left: 32px;
+}
+
+.nav-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-dark-blue);
+}
+
+.nav-sep {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-dark-blue);
+    margin: 0 4px;
+}
+
+.nav-descriptor {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-dark-blue);
+}
+
+/* Right: nav links */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding-left: 40px;
+    padding-right: 32px;
+}
+
+.nav-links > li {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0 20px;
+}
+
+.nav-links > li:first-child {
+    padding-left: 0;
+}
+
+.nav-links > li:last-child {
+    padding-right: 0;
+}
+
+.nav-pipe {
+    font-size: 14px;
+    color: var(--color-light-blue);
+    margin-right: 10px;
+    user-select: none;
+}
+
+.nav-links a {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-light-blue);
+    transition: color 0.2s ease;
+    white-space: nowrap;
+}
+
+.nav-links a:hover {
+    color: var(--color-dark-blue);
+}
+
+.nav-links a:focus-visible {
+    color: var(--color-dark-blue);
+    outline: 2px solid var(--color-dark-blue);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+/* Dropdown */
+.has-dropdown {
+    position: relative;
+}
+
+.nav-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 8px;
+    background-color: var(--color-white);
+    min-width: 190px;
+    padding: 6px 0;
+    z-index: 200;
+}
+
+.has-dropdown:hover .nav-dropdown,
+.has-dropdown:focus-within .nav-dropdown {
+    display: block;
+}
+
+.nav-dropdown li {
+    display: block;
+}
+
+.nav-dropdown a {
+    display: block;
+    padding: 9px 18px;
+    font-size: 13px;
+    color: var(--color-light-blue);
+    white-space: nowrap;
+}
+
+.nav-dropdown a:hover {
+    color: var(--color-dark-blue);
+}
+
+/* ============================================================
+   Hero section
+   ============================================================ */
+.hero {
+    display: grid;
+    grid-template-columns: 35% 65%;
+    align-items: start;
+    align-content: start;
+    background-color: var(--color-light-grey);
+    min-height: 100vh;
+    padding-top: calc(var(--nav-height) + var(--nav-offset));
+}
+
+/* Left column */
+.hero-left {
+    background-color: var(--color-white);
+    align-self: stretch;
+    padding: 155px 40px 60px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.hero-name {
+    font-size: clamp(3.75rem, 6vw, 5.5rem);
+    font-weight: 700;
+    color: var(--color-dark-blue);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+}
+
+.hero-title {
+    font-size: clamp(1rem, 1.4vw, 1.2rem);
+    font-weight: 400;
+    color: var(--color-light-blue);
+    line-height: 1.2;
+}
+
+.hero-tagline {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-mid-grey);
+    line-height: 1.2;
+}
+
+.site-footer {
+    padding: 32px 0 16px 32px;
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--color-mid-grey);
+    line-height: 1;
+}
+
+.site-footer a {
+    color: var(--color-mid-grey);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.site-footer a:hover {
+    color: var(--color-light-blue);
+}
+
+/* Right column */
+.hero-right {
+    background-color: var(--color-white);
+    display: flex;
+    align-items: flex-start;
+    padding-top: 43px;
+    padding-right: 32px;
+    padding-bottom: 32px;
+    padding-left: 40px;
+}
+
+/* ============================================================
+   Carousel
+   ============================================================ */
+.carousel {
+    position: relative;
+    width: 100%;
+    /* Natural image ratio — images are 2554×1750 */
+    aspect-ratio: 2554 / 1750;
+    /* Never taller than the visible area below the nav + top padding */
+    max-height: calc(100vh - var(--nav-height) - var(--nav-offset) - 43px);
+    overflow: hidden;
+    background-color: var(--color-light-grey);
+}
+
+.carousel-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Slides: stacked, fade between */
+.carousel-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.65s ease;
+}
+
+.carousel-slide.is-active {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 1;
+}
+
+.slide-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Hover overlay */
+.slide-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(10, 20, 40, 0.58);
+    color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 40px 44px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.carousel-slide:hover .slide-overlay {
+    opacity: 1;
+}
+
+.slide-category {
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+.slide-title {
+    font-size: clamp(1.3rem, 2.2vw, 1.9rem);
+    font-weight: 700;
+    color: var(--color-white);
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.slide-role {
+    font-size: 0.875rem;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.2;
+    margin-bottom: 14px;
+}
+
+.slide-teaser {
+    font-size: 0.9rem;
+    line-height: 1.2;
+    color: rgba(255, 255, 255, 0.88);
+    max-width: 520px;
+}
+
+/* Arrow buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.18);
+    border: none;
+    border-radius: 2px;
+    color: rgba(255, 255, 255, 0.75);
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.carousel-btn:hover {
+    background: rgba(255, 255, 255, 0.32);
+    color: var(--color-white);
+}
+
+.carousel-btn:focus-visible {
+    outline: 2px solid var(--color-white);
+    outline-offset: 2px;
+}
+
+.carousel-prev { left: 14px; }
+.carousel-next { right: 14px; }
+
+/* Dot navigation */
+.carousel-dots {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 9px;
+    z-index: 10;
+}
+
+.carousel-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.35);
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.carousel-dot[aria-selected="true"] {
+    background: rgba(255, 255, 255, 0.92);
+}
+
+.carousel-dot:focus-visible {
+    outline: 2px solid var(--color-white);
+    outline-offset: 3px;
+}
+
+/* ============================================================
+   Hamburger toggle button — hidden on desktop/tablet
+   ============================================================ */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    color: var(--color-dark-blue);
+    line-height: 0;
+}
+
+.nav-toggle:focus-visible {
+    outline: 2px solid var(--color-dark-blue);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+.icon-close { display: none; }
+.nav-toggle[aria-expanded="true"] .icon-menu { display: none; }
+.nav-toggle[aria-expanded="true"] .icon-close { display: block; }
+
+/* ============================================================
+   Responsive — tablet (≤ 960px): stack columns
+   ============================================================ */
+@media (max-width: 960px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-left {
+        padding: 80px 32px 36px;
+        gap: 22px;
+    }
+
+    .hero-right {
+        padding-top: 0;
+    }
+
+    .carousel {
+        /* Let it fill the width; height follows aspect-ratio naturally */
+        max-height: none;
+    }
+
+    /* Always show overlay on tablet/touch */
+    .slide-overlay {
+        opacity: 1;
+    }
+}
+
+/* ============================================================
+   Responsive — medium (≤ 1200px): hide nav descriptor
+   ============================================================ */
+@media (max-width: 1200px) {
+    .nav-sep,
+    .nav-descriptor {
+        display: none;
+    }
+}
+
+/* ============================================================
+   Responsive — mobile (≤ 600px)
+   ============================================================ */
+@media (max-width: 600px) {
+    :root {
+        --nav-height: 52px;
+    }
+
+    /* Nav: switch to flex, show hamburger */
+    .site-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--nav-offset) 20px 0;
+    }
+
+    .nav-identity {
+        padding-left: 0;
+    }
+
+    .nav-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Nav links: hidden until hamburger opens */
+    .nav-links {
+        display: none;
+        position: fixed;
+        top: calc(var(--nav-height) + var(--nav-offset));
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background-color: var(--color-white);
+        padding: 8px 0 20px;
+        z-index: 150;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav-links.is-open {
+        display: flex;
+    }
+
+    .nav-links > li {
+        padding: 0;
+        width: 100%;
+    }
+
+    .nav-links > li > a {
+        display: block;
+        padding: 11px 20px;
+        font-size: 14px;
+    }
+
+    .nav-pipe {
+        display: none;
+    }
+
+    /* My work: two-column layout, hairlines above and below */
+    .nav-links > li.has-dropdown {
+        align-items: flex-start;
+        border-top: 1px solid var(--color-light-grey);
+        border-bottom: 1px solid var(--color-light-grey);
+    }
+
+    .nav-dropdown {
+        display: block;
+        position: static;
+        min-width: auto;
+        padding: 0;
+        box-shadow: none;
+        flex: 1;
+    }
+
+    .nav-dropdown a {
+        padding: 8px 20px 8px 0;
+        font-size: 13px;
+    }
+
+    .nav-dropdown li:first-child a {
+        padding-top: 11px;
+    }
+
+    .nav-dropdown li:last-child a {
+        padding-bottom: 11px;
+    }
+
+    /* Hero */
+    .hero-left {
+        padding: 60px 20px 28px;
+        gap: 18px;
+    }
+
+    /* Carousel overlay: tighter padding, hide teaser */
+    .slide-overlay {
+        padding: 20px 22px;
+    }
+
+    .slide-title {
+        font-size: 1.1rem;
+    }
+
+    .slide-role {
+        font-size: 0.8rem;
+    }
+
+    .slide-teaser {
+        display: none;
+    }
+}
+
+/* ============================================================
+   Reduced motion — disable carousel and overlay transitions
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+    .carousel-slide,
+    .slide-overlay {
+        transition: none;
+    }
+}
