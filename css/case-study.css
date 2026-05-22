@@ -89,6 +89,40 @@
 }
 
 /* ============================================================
+   Case Study — Callout variant: full-width 50-50 split
+   Grid sits directly on the callout div itself so the dark-blue
+   background is never separated from the layout columns.
+   Left column = image; right column = text with its own padding.
+   ============================================================ */
+.cs-callout--split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0;        /* override default 72px 0 padding */
+    align-items: stretch;
+    gap: 0;
+}
+
+/* Image column */
+.cs-callout--split .cs-callout-img {
+    background-color: var(--color-dark-blue);
+    min-height: 440px;
+    overflow: hidden;
+}
+
+.cs-callout--split .cs-callout-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Text column: explicit background + own padding */
+.cs-callout-text {
+    background-color: var(--color-dark-blue);
+    padding: 64px 10% 64px 7%;
+}
+
+/* ============================================================
    Case Study — Intro / category typography
    ============================================================ */
 .cs-category {
@@ -656,6 +690,18 @@
     align-self: start;
 }
 
+/* ============================================================
+   Case Study — 2+1 stat grid: two stats per row, third full-width
+   Applied at all viewport sizes (not just mobile)
+   ============================================================ */
+.cs-stat-grid--2-plus-1 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.cs-stat-grid--2-plus-1 .cs-stat:last-child {
+    grid-column: 1 / -1;
+}
+
 .cs-stat-icon {
     height: 56px;
     width: auto;
@@ -752,6 +798,87 @@
 }
 
 /* ============================================================
+   Case Study — Translations grid
+   Left col: conference theme in serif display; right 2 cols: language translations
+   ============================================================ */
+.cs-translations-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr 1fr;
+    gap: 24px;
+    margin-top: 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-light-grey);
+}
+
+/* Small event label above display text */
+.cs-translations-event {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--color-mid-grey);
+    display: block;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+/* Large serif display text: "Connect. Elevate. Inspire." */
+.cs-translations-display {
+    font-family: 'ITC Charter', Georgia, 'Times New Roman', serif;
+    font-size: clamp(2rem, 2.8vw, 2.8rem);
+    font-weight: 400;
+    color: var(--color-near-black);
+    line-height: 1.1;
+    margin: 0;
+}
+
+/* Language column headers (Ucwalmícwts / Sḵwx̱wú7mesh) */
+.cs-translations-lang {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--color-near-black);
+    display: block;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--color-light-grey);
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+/* Native-language phrase (bold) */
+.cs-translations-phrase {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--color-near-black);
+    line-height: 1.3;
+    display: block;
+    margin-bottom: 2px;
+}
+
+/* English meaning below native phrase */
+.cs-translations-meaning {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--color-near-black);
+    line-height: 1.4;
+    display: block;
+    margin-bottom: 14px;
+}
+
+/* ============================================================
+   Case Study — Venue caption (challenge grid labels)
+   ============================================================ */
+.cs-venue-caption {
+    font-size: 0.75rem;
+    color: var(--color-mid-grey);
+    text-align: center;
+    margin-top: 6px;
+    line-height: 1.2;
+}
+
+/* ============================================================
    Case Study — Responsive: tablet (≤ 960px)
    ============================================================ */
 @media (max-width: 960px) {
@@ -786,6 +913,22 @@
 
     .cs-stat-grid--2 {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cs-callout--split {
+        grid-template-columns: 1fr;
+    }
+
+    .cs-callout--split .cs-callout-img {
+        min-height: 280px;
+    }
+
+    .cs-callout-text {
+        padding: 48px 6%;
+    }
+
+    .cs-translations-grid {
+        grid-template-columns: 1fr 1fr 1fr;
     }
 }
 
@@ -931,6 +1074,19 @@
     /* Office elements — stack columns on mobile */
     .cs-office-elements {
         grid-template-columns: 1fr !important;
+    }
+
+    /* Translations — stack all three columns on mobile */
+    .cs-translations-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cs-translations-display {
+        font-size: 2.25rem;
+    }
+
+    .cs-callout-text {
+        padding: 40px 20px;
     }
 }
 

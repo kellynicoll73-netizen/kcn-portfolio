@@ -587,6 +587,11 @@ ul {
         gap: 18px;
     }
 
+    /* Carousel: remove hero-right padding so it runs edge-to-edge */
+    .hero-right {
+        padding: 0;
+    }
+
     /* Carousel overlay: tighter padding, hide teaser */
     .slide-overlay {
         padding: 20px 22px;
