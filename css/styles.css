@@ -469,7 +469,7 @@ ul {
     }
 
     .hero-right {
-        padding-top: 0;
+        padding: 0 32px 32px;
     }
 
     .carousel {
@@ -587,9 +587,9 @@ ul {
         gap: 18px;
     }
 
-    /* Carousel: remove hero-right padding so it runs edge-to-edge */
+    /* Carousel: match hero-left side padding so edges align */
     .hero-right {
-        padding: 0;
+        padding: 0 20px 20px;
     }
 
     /* Carousel overlay: tighter padding, hide teaser */
