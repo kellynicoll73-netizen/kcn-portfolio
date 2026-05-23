@@ -123,6 +123,65 @@
 }
 
 /* ============================================================
+   Case Study — Callout variant: poster carousel (50/50)
+   Left column = sliding conveyor of portrait posters (no crop).
+   Right column = text.
+   Stays side-by-side down to 600px; stacks only on mobile.
+   ============================================================ */
+.cs-callout--poster {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0;
+    align-items: stretch;
+    gap: 0;
+}
+
+/* Left column: dark blue background, padding, vertical centring.
+   Does NOT do overflow clipping — flex/grid containers don't reliably
+   clip transform'd children, so that job belongs to cs-poster-clip. */
+.cs-poster-carousel {
+    background-color: var(--color-dark-blue);
+    padding: 48px 32px;           /* symmetric 32px frame left and right */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;      /* vertically centre the clip div */
+}
+
+/* Dedicated overflow clip — plain block so it reliably contains the
+   translateX'd track. position: relative + overflow: hidden is the
+   only cross-browser-safe way to clip transformed children. */
+.cs-poster-clip {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+/* Track: flex row of all posters + clones; overflows right of clip div */
+.cs-poster-track {
+    display: flex;
+    gap: 8px;
+    /* Transition applied by JS — not here — so there's no animation on load */
+}
+
+/* Each poster: exactly half the track width minus half the gap */
+.cs-poster-item {
+    flex: 0 0 calc(50% - 4px);
+    min-width: 0;
+}
+
+/* Placeholder tint — visible against dark blue background */
+.cs-poster-item .cs-img-placeholder {
+    background-color: transparent;
+}
+
+/* Actual image: full width, natural height, no crop */
+.cs-poster-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ============================================================
    Case Study — Intro / category typography
    ============================================================ */
 .cs-category {
@@ -270,7 +329,7 @@
    Images always crop to fill — never stretch or squash.
    ============================================================ */
 .cs-img-placeholder {
-    background-color: var(--color-light-grey);
+    background-color: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -325,11 +384,11 @@
    Case Study — Visual groups (right column labels)
    ============================================================ */
 .cs-visual-group {
-    margin-bottom: 28px;
+    margin-top: 28px;
 }
 
-.cs-visual-group:last-child {
-    margin-bottom: 0;
+.cs-visual-group:first-child {
+    margin-top: 0;
 }
 
 .cs-visual-label {
@@ -348,7 +407,7 @@
     font-weight: 700;
     color: var(--color-near-black);
     line-height: 1.2;
-    margin-bottom: 18px;
+    margin-bottom: 10px;
 }
 
 /* ============================================================
@@ -927,6 +986,19 @@
         padding: 48px 6%;
     }
 
+    /* Poster carousel: stays 50/50 at tablet — posters remain a readable size */
+    .cs-callout--poster {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .cs-poster-carousel {
+        padding: 40px 20px;       /* symmetric at tablet */
+    }
+
+    .cs-callout--poster .cs-callout-text {
+        padding: 40px 6% 40px 5%;
+    }
+
     .cs-translations-grid {
         grid-template-columns: 1fr 1fr 1fr;
     }
@@ -1088,6 +1160,49 @@
     .cs-callout-text {
         padding: 40px 20px;
     }
+
+    /* Poster carousel: stack on mobile, carousel above text */
+    .cs-callout--poster {
+        grid-template-columns: 1fr;
+    }
+
+    .cs-poster-carousel {
+        padding: 28px 20px;
+    }
+
+    .cs-callout--poster .cs-callout-text {
+        padding: 32px 20px;
+    }
+}
+
+/* ============================================================
+   Case Study — Implementation imagery grid
+   No fixed row heights — images display at their natural
+   proportions. Size your source images to the proportions you
+   want; the grid columns control width, images control height.
+   ============================================================ */
+.cs-impl-row {
+    display: grid;
+    gap: 8px;
+}
+
+/* row heights — shorter than original 220px; re-output images to match */
+.cs-impl-row {
+    grid-template-rows: 180px;
+}
+
+.cs-impl-row--2 {
+    grid-template-rows: 86px 86px;  /* (180 - 8) / 2 = 86 */
+}
+
+@media (max-width: 960px) {
+    .cs-impl-row            { grid-template-rows: 140px; }
+    .cs-impl-row.cs-impl-row--2 { grid-template-rows: 66px 66px; }
+}
+
+@media (max-width: 600px) {
+    .cs-impl-row            { grid-template-rows: 110px; }
+    .cs-impl-row.cs-impl-row--2 { grid-template-rows: 51px 51px; }
 }
 
 /* ============================================================

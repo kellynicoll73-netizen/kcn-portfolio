@@ -81,6 +81,27 @@
     carousel.addEventListener('focusin',    stopAuto);
     carousel.addEventListener('focusout',   startAuto);
 
+    // Swipe (touch) — left = next, right = prev
+    var swipeStartX  = null;
+    var SWIPE_MIN_PX = 40;
+
+    carousel.addEventListener('touchstart', function (e) {
+        swipeStartX = e.changedTouches[0].clientX;
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', function (e) {
+        if (swipeStartX === null) return;
+        var dx = e.changedTouches[0].clientX - swipeStartX;
+        swipeStartX = null;
+        if (Math.abs(dx) < SWIPE_MIN_PX) return;
+        if (dx < 0) {
+            goTo(current + 1); // swipe left → next
+        } else {
+            goTo(current - 1); // swipe right → prev
+        }
+        startAuto();
+    }, { passive: true });
+
     // Start auto-advance only when reduced-motion is not preferred
     startAuto();
 
