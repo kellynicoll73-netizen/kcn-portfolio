@@ -118,7 +118,7 @@
 }
 
 .tl-hero-subtitle {
-    font-size: clamp(0.9375rem, 1.3vw, 1.1rem);
+    font-size: clamp(1rem, 1.4vw, 1.15rem);
     color: var(--tl-yellow);
     line-height: 1.2;
     margin-bottom: 10px;
@@ -166,7 +166,7 @@
 }
 
 .tl-article-sub {
-    font-size: clamp(0.9375rem, 1.3vw, 1.1rem);
+    font-size: clamp(1rem, 1.4vw, 1.15rem);
     color: var(--color-light-blue);
     line-height: 1.2;
     margin-bottom: 32px;
@@ -826,7 +826,7 @@
     }
 
     .tl-inv-mobile-sub {
-        font-size: clamp(0.9375rem, 1.3vw, 1.1rem);
+        font-size: clamp(1rem, 1.4vw, 1.15rem);
         font-weight: 400;
         color: var(--color-dark-blue);
         line-height: 1.2;
