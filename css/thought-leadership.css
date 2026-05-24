@@ -788,12 +788,12 @@
         top: 0;
         right: 0;
         bottom: 0;
-        width: 52%;
+        width: 60%;
         background: linear-gradient(to right, transparent, rgba(69, 135, 197, 0.88));
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        padding: 20px 20px 20px 16px;
+        justify-content: flex-end;
+        padding: 20px 20px 28px 16px;
     }
 
     .tl-inv-mobile-h2 {
@@ -846,6 +846,10 @@
     .tl-stats-grid {
         grid-template-columns: 1fr 1fr;
         gap: 32px 16px;
+    }
+
+    .tl-stat-group-label {
+        align-items: flex-start;
     }
 
     /* ─── Imagine: text + mobile image at bottom ─── */
