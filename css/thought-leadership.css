@@ -643,6 +643,21 @@
 }
 
 /* ============================================================
+   Responsive — medium (≤ 1200px): single image on conclusion
+   ============================================================ */
+@media (max-width: 1200px) {
+
+    /* Conclusion: hide right image, shift to 2-col layout */
+    .tl-imagine {
+        grid-template-columns: 35% 65%;
+    }
+
+    .tl-imagine-img--right {
+        display: none;
+    }
+}
+
+/* ============================================================
    Responsive — tablet (≤ 960px)
    ============================================================ */
 @media (max-width: 960px) {
