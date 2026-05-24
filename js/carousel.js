@@ -1,25 +1,26 @@
 (function () {
     'use strict';
 
-    var carousel   = document.getElementById('carousel');
-    var slides     = Array.from(carousel.querySelectorAll('.carousel-slide'));
-    var dots       = Array.from(carousel.querySelectorAll('.carousel-dot'));
-    var prevBtn    = document.getElementById('carouselPrev');
-    var nextBtn    = document.getElementById('carouselNext');
-    var liveRegion = document.getElementById('carouselLive');
+    const carousel   = document.getElementById('carousel');
+    const slides     = Array.from(carousel.querySelectorAll('.carousel-slide'));
+    const dots       = Array.from(carousel.querySelectorAll('.carousel-dot'));
+    const prevBtn    = document.getElementById('carouselPrev');
+    const nextBtn    = document.getElementById('carouselNext');
+    const liveRegion = document.getElementById('carouselLive');
 
-    var current     = 0;
-    var timer       = null;
-    var INTERVAL    = 5000;
-    var autoEnabled = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let current     = 0;
+    let timer       = null;
+    const INTERVAL    = 5000;
+    const autoEnabled = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     function goTo(index) {
-        var next = (index + slides.length) % slides.length;
+        const next = (index + slides.length) % slides.length;
         if (next === current) return;
 
         // Deactivate outgoing slide
         slides[current].classList.remove('is-active');
         slides[current].querySelector('.slide-link').setAttribute('tabindex', '-1');
+        slides[current].setAttribute('aria-hidden', 'true');
         dots[current].setAttribute('aria-selected', 'false');
 
         current = next;
@@ -27,6 +28,7 @@
         // Activate incoming slide
         slides[current].classList.add('is-active');
         slides[current].querySelector('.slide-link').setAttribute('tabindex', '0');
+        slides[current].removeAttribute('aria-hidden');
         dots[current].setAttribute('aria-selected', 'true');
 
         // Announce to screen readers
@@ -82,8 +84,8 @@
     carousel.addEventListener('focusout',   startAuto);
 
     // Swipe (touch) — left = next, right = prev
-    var swipeStartX  = null;
-    var SWIPE_MIN_PX = 40;
+    let swipeStartX  = null;
+    const SWIPE_MIN_PX = 40;
 
     carousel.addEventListener('touchstart', function (e) {
         swipeStartX = e.changedTouches[0].clientX;
@@ -91,7 +93,7 @@
 
     carousel.addEventListener('touchend', function (e) {
         if (swipeStartX === null) return;
-        var dx = e.changedTouches[0].clientX - swipeStartX;
+        const dx = e.changedTouches[0].clientX - swipeStartX;
         swipeStartX = null;
         if (Math.abs(dx) < SWIPE_MIN_PX) return;
         if (dx < 0) {
