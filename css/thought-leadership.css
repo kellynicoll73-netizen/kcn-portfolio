@@ -288,19 +288,16 @@
 
 /* Pull quote — quote mark provides the left decoration */
 .tl-pull-figure {
-    position: relative;
-    padding-left: 64px;
+    display: flex;
+    flex-direction: column;
     margin-bottom: 48px;
 }
 
 .tl-pull-quote-icon {
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
     width: 44px;
-    display: flex;
-    align-items: flex-start;
+    height: 36px;
+    flex-shrink: 0;
+    margin-bottom: 16px;
     color: var(--color-white);
     opacity: 0.35;
 }
@@ -841,14 +838,6 @@
 
     .tl-inv-text-col {
         padding: 48px 20px;
-    }
-
-    .tl-pull-figure {
-        padding-left: 52px;
-    }
-
-    .tl-pull-quote-icon {
-        width: 36px;
     }
 
     .tl-white-section {
