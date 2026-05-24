@@ -802,7 +802,7 @@
     }
 
     .tl-inv-mobile-h2 {
-        font-size: clamp(1.1rem, 5vw, 1.4rem);
+        font-size: clamp(1.75rem, 3vw, 2.5rem);
         font-weight: 700;
         color: var(--tl-yellow);
         line-height: 1.1;
@@ -811,8 +811,8 @@
     }
 
     .tl-inv-mobile-sub {
-        font-size: 0.75rem;
-        font-weight: 600;
+        font-size: clamp(0.9375rem, 1.3vw, 1.1rem);
+        font-weight: 400;
         color: var(--color-dark-blue);
         line-height: 1.2;
         margin: 0;
