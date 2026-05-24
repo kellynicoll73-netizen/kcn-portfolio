@@ -8,7 +8,7 @@
     --tl-yellow:       #ffb600;
     --tl-tangerine:    #ff9900;
     --tl-sticky-h:     28px;
-    --tl-bridge-grey:  #7d7d7d;
+    --tl-bridge-grey:  #2d2d2d;
 }
 
 /* ============================================================
@@ -217,7 +217,7 @@
 }
 
 .tl-bridge .tl-article-sub {
-    color: var(--color-dark-blue);
+    color: var(--color-light-blue);
     margin-bottom: 28px;
 }
 
