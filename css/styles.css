@@ -3,7 +3,7 @@
    ============================================================ */
 :root {
     --color-dark-blue:  #063a58;
-    --color-light-blue: #2E74B5;
+    --color-light-blue: #4587c5;
     --color-white:      #FFFFFF;
     --color-near-black: #1A1A1A;
     --color-mid-grey:   #5F5F5F;
@@ -11,6 +11,7 @@
     --font:             'Helvetica Neue', Helvetica, Arial, sans-serif;
     --nav-height:       60px;
     --nav-offset:       30px;
+    --lh-body:          1.5;
 }
 
 /* ============================================================
@@ -47,6 +48,25 @@ a {
 
 ul {
     list-style: none;
+}
+
+/* Skip-to-main link — visible on keyboard focus only */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    padding: 10px 18px;
+    background: var(--color-dark-blue);
+    color: var(--color-white);
+    font-size: 14px;
+    font-weight: 700;
+    z-index: 9999;
+    text-decoration: none;
+    border-radius: 0 0 4px 0;
+}
+
+.skip-link:focus {
+    top: 0;
 }
 
 /* Screen-reader only utility */
@@ -169,7 +189,7 @@ ul {
     left: 8px;
     background-color: var(--color-white);
     min-width: 190px;
-    padding: 6px 0;
+    padding: 12px 0 6px;
     z-index: 200;
 }
 
@@ -364,7 +384,7 @@ ul {
 
 .slide-teaser {
     font-size: 0.9rem;
-    line-height: 1.2;
+    line-height: var(--lh-body);
     color: rgba(255, 255, 255, 0.88);
     max-width: 520px;
 }

@@ -1,0 +1,894 @@
+/* ============================================================
+   Thought Leadership — page-specific styles
+   Covers Brand Excitement and future TL pieces
+   ============================================================ */
+
+/* Design tokens (TL-specific additions) */
+:root {
+    --tl-yellow:       #ffb600;
+    --tl-tangerine:    #ff9900;
+    --tl-sticky-h:     28px;
+    --tl-bridge-grey:  #7d7d7d;
+}
+
+/* ============================================================
+   Sticky reading bar — sits under the fixed nav
+   Shows current section name + progress line at its base
+   ============================================================ */
+.tl-sticky-bar {
+    position: fixed;
+    top: calc(var(--nav-height) + var(--nav-offset));
+    left: 0;
+    right: 0;
+    height: var(--tl-sticky-h);
+    background-color: var(--color-white);
+    border-bottom: 1px solid var(--color-light-grey);
+    display: flex;
+    align-items: center;
+    padding: 0 32px;
+    z-index: 90;
+    overflow: hidden;
+}
+
+.tl-sticky-section {
+    font-size: 10px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-mid-grey);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ============================================================
+   Reading progress bar — 2px line at base of sticky bar
+   ============================================================ */
+.tl-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--tl-yellow);
+    z-index: 1;
+    pointer-events: none;
+    transition: width 0.1s linear;
+}
+
+/* ============================================================
+   Page wrapper — pushes content below nav + sticky bar
+   ============================================================ */
+.tl-page {
+    padding-top: calc(var(--nav-height) + var(--nav-offset) + var(--tl-sticky-h));
+}
+
+/* ============================================================
+   Hero — split screen (42 / 58), mirrors PDF cover layout
+   Reduced depth so Bridge section is visible below the fold
+   ============================================================ */
+.tl-hero {
+    display: grid;
+    grid-template-columns: 42% 58%;
+    min-height: 560px;
+    background-color: var(--color-dark-blue);
+    padding-bottom: 80px;
+}
+
+.tl-hero-left {
+    background-color: var(--color-dark-blue);
+    padding: 52px 48px 52px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tl-hero-right {
+    overflow: hidden;
+    background-color: var(--color-dark-blue);
+}
+
+.tl-hero-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left center;
+    display: block;
+}
+
+.tl-hero-title-block {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 32px 0;
+}
+
+.tl-hero-title {
+    font-size: clamp(2.25rem, 4vw, 3.75rem);
+    font-weight: 400;
+    color: var(--color-white);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+}
+
+.tl-hero-title strong {
+    font-weight: 700;
+}
+
+.tl-hero-subtitle {
+    font-size: clamp(0.9375rem, 1.3vw, 1.1rem);
+    color: var(--tl-yellow);
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.tl-hero-tagline {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: var(--lh-body);
+}
+
+.tl-hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--color-white);
+    margin-top: 20px;
+}
+
+.tl-hero-meta-sep {
+    color: rgba(255, 255, 255, 0.4);
+    user-select: none;
+}
+
+.tl-read-time {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* ============================================================
+   Shared section heading scale
+   Used across all reading sections — Four inputs, Research,
+   Bridge (light on dark), Inversion (dark on light),
+   and Imagine This
+   ============================================================ */
+.tl-article-h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700;
+    color: var(--color-dark-blue);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+}
+
+.tl-article-sub {
+    font-size: clamp(0.9375rem, 1.3vw, 1.1rem);
+    color: var(--color-light-blue);
+    line-height: 1.2;
+    margin-bottom: 32px;
+}
+
+/* ============================================================
+   Bridge section — dark navy, text in left column (65%)
+   Right column is reserved for a graphic
+   ============================================================ */
+.tl-bridge {
+    background-color: var(--tl-bridge-grey);
+    display: grid;
+    grid-template-columns: 65% 35%;
+}
+
+.tl-bridge-rule {
+    grid-column: 1 / -1;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 0 32px;
+}
+
+.tl-bridge-left {
+    padding: 80px 48px 80px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Right column: image anchored to bottom-right corner */
+.tl-bridge-right {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    overflow: hidden;
+    padding-bottom: 80px;
+}
+
+.tl-bridge-right img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: right bottom;
+}
+
+/* Heading colour overrides for dark background context */
+.tl-bridge .tl-article-h2 {
+    color: var(--tl-yellow);
+}
+
+.tl-bridge .tl-article-sub {
+    color: var(--color-dark-blue);
+    margin-bottom: 28px;
+}
+
+.tl-bridge-subhead {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-white);
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.tl-bridge-body {
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: var(--lh-body);
+    margin-bottom: 16px;
+}
+
+.tl-bridge-body:last-child {
+    margin-bottom: 0;
+}
+
+.tl-bridge-body strong {
+    color: var(--color-white);
+}
+
+/* ============================================================
+   Inversion section — light blue, 35 / 65 grid
+   Left column: image (PDF brand elements)
+   Right column: title, pull quote, body
+   ============================================================ */
+.tl-inversion {
+    background-color: var(--color-light-blue);
+    display: grid;
+    grid-template-columns: 35% 65%;
+}
+
+.tl-inv-img-col {
+    background-color: var(--color-light-blue);
+    overflow: hidden;
+    position: relative;
+}
+
+.tl-inv-img-col img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+}
+
+.tl-inv-text-col {
+    padding: 80px 32px 80px 48px;
+}
+
+/* Heading colour overrides for light-blue background — all white */
+.tl-inversion .tl-article-h2 {
+    color: var(--tl-yellow);
+}
+
+.tl-inversion .tl-article-sub {
+    color: var(--color-dark-blue);
+    margin-bottom: 40px;
+}
+
+/* Pull quote — quote mark provides the left decoration */
+.tl-pull-figure {
+    position: relative;
+    padding-left: 64px;
+    margin-bottom: 48px;
+}
+
+.tl-pull-quote-icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 44px;
+    display: flex;
+    align-items: flex-start;
+    color: var(--color-white);
+    opacity: 0.35;
+}
+
+.tl-pull-quote-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.tl-pull-quote {
+    font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+    font-weight: 400;
+    font-style: normal;
+    color: var(--color-white);
+    line-height: var(--lh-body);
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.tl-inv-sub {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    font-weight: 400;
+    color: var(--color-dark-blue);
+    line-height: 1.2;
+    margin-bottom: 40px;
+}
+
+.tl-inv-body p {
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: var(--lh-body);
+    margin-bottom: 18px;
+}
+
+.tl-inv-body p:last-child {
+    margin-bottom: 0;
+}
+
+.tl-business-case {
+    font-size: 1rem !important;
+    color: var(--color-white) !important;
+    padding: 24px 28px !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    margin-top: 40px !important;
+    margin-bottom: 0 !important;
+    line-height: var(--lh-body) !important;
+}
+
+.tl-business-case strong {
+    color: var(--tl-yellow);
+}
+
+/* ============================================================
+   Reading column — white sections (Four inputs, Research)
+   ============================================================ */
+.tl-white-section {
+    background-color: var(--color-white);
+    padding: 80px 0;
+}
+
+.tl-col {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+.tl-col--wide {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+.tl-body-lead {
+    font-size: 1.0625rem;
+    color: var(--color-near-black);
+    line-height: var(--lh-body);
+    margin-bottom: 18px;
+}
+
+.tl-body {
+    font-size: 0.9375rem;
+    color: var(--color-near-black);
+    line-height: var(--lh-body);
+    margin-bottom: 16px;
+}
+
+.tl-body:last-child {
+    margin-bottom: 0;
+}
+
+/* ============================================================
+   Four inputs — 2 × 2 card grid
+   ============================================================ */
+.tl-inputs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 52px;
+}
+
+.tl-input-img {
+    background-color: var(--color-light-grey);
+    aspect-ratio: 19 / 10; /* ~30% shorter than original 4/3 */
+    margin-bottom: 20px;
+    position: relative;   /* anchor for the floating number */
+    overflow: hidden;
+}
+
+.tl-input-img img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.tl-input-number {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    font-size: 7.15rem;
+    font-weight: 400;
+    color: var(--tl-yellow);
+    line-height: 1;
+    z-index: 1;
+}
+
+.tl-input-title {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--color-dark-blue);
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.tl-input-body {
+    font-size: 0.9375rem;
+    color: var(--color-near-black);
+    line-height: var(--lh-body);
+}
+
+/* ============================================================
+   Research / Stats panel — light grey background
+   ============================================================ */
+.tl-stats {
+    background-color: var(--color-light-grey);
+    padding: 80px 32px;
+}
+
+.tl-stats-intro {
+    max-width: 740px;
+    margin: 0 auto 60px;
+}
+
+.tl-stats-conclusion {
+    font-size: 0.9375rem;
+    color: var(--color-near-black);
+    line-height: var(--lh-body);
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+.tl-stats-conclusion strong {
+    color: var(--color-dark-blue);
+}
+
+.tl-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0 40px;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.tl-stat-group-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding-bottom: 14px;
+    border-bottom: 3px solid var(--tl-yellow);
+    margin-bottom: 24px;
+}
+
+.tl-stat-group-num {
+    font-size: 2.25rem;
+    font-weight: 400;
+    color: var(--tl-yellow);
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.tl-stat-group-name {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--color-dark-blue);
+    line-height: 1.2;
+}
+
+.tl-stat-item {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.tl-stat-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.tl-stat-figure {
+    font-size: clamp(4rem, 6vw, 6.5rem);
+    font-weight: 400;
+    color: var(--color-dark-blue);
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+.tl-stat-unit {
+    font-size: 0.5em;
+    font-weight: 400;
+    vertical-align: super;
+    line-height: 1;
+}
+
+.tl-stat-desc {
+    font-size: 0.8125rem;
+    color: var(--color-near-black);
+    line-height: var(--lh-body);
+    margin-bottom: 6px;
+}
+
+.tl-stat-desc strong {
+    font-weight: 700;
+}
+
+.tl-stat-source {
+    display: block;
+    font-size: 0.6875rem;
+    color: var(--color-mid-grey);
+    line-height: 1.2;
+    font-style: normal;
+}
+
+.tl-stat-source a {
+    color: var(--color-light-blue);
+    text-decoration: none;
+}
+
+.tl-stat-source a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================================
+   Imagine This — single centred column (white background)
+   ============================================================ */
+.tl-imagine {
+    background-color: var(--color-white);
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 740px) 1fr;
+    align-items: stretch;
+}
+
+.tl-imagine-img {
+    overflow: hidden;
+    background-color: var(--color-white);
+    display: flex;
+    align-items: center;
+}
+
+.tl-imagine-img img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.tl-imagine-col {
+    padding: 80px 32px;
+}
+
+.tl-imagine-body {
+    font-size: 0.9375rem;
+    color: var(--color-near-black);
+    line-height: var(--lh-body);
+    margin-bottom: 16px;
+}
+
+.tl-imagine-body:last-of-type {
+    margin-bottom: 0;
+}
+
+.tl-imagine-body strong {
+    color: var(--color-dark-blue);
+}
+
+/* ============================================================
+   CTA block
+   ============================================================ */
+.tl-cta {
+    margin-top: 44px;
+    padding-top: 32px;
+    border-top: 1px solid var(--color-light-grey);
+}
+
+/* Matches .cs-cta style used across case study pages */
+.tl-cta-btn {
+    display: inline-block;
+    padding: 14px 24px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--color-white);
+    background-color: var(--color-light-blue);
+    line-height: 1.2;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.tl-cta-btn:hover {
+    background-color: var(--color-dark-blue);
+    color: var(--color-white);
+}
+
+.tl-cta-btn:focus-visible {
+    outline: 2px solid var(--color-dark-blue);
+    outline-offset: 3px;
+}
+
+/* ============================================================
+   Mobile-only elements — hidden on desktop and tablet
+   ============================================================ */
+.tl-bridge-mobile-img,
+.tl-inv-mobile-top,
+.tl-imagine-mobile-img {
+    display: none;
+}
+
+/* ============================================================
+   Responsive — tablet (≤ 960px)
+   ============================================================ */
+@media (max-width: 960px) {
+
+    /* ─── Hero: case-study overlay pattern ─── */
+    .tl-hero {
+        display: block;
+        position: relative;
+        min-height: auto;
+        padding-bottom: 0;
+        background-color: var(--color-dark-blue); /* fallback if image fails */
+    }
+
+    .tl-hero::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(6, 20, 40, 0.65);
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .tl-hero-right {
+        position: absolute;
+        inset: 0;
+    }
+
+    .tl-hero-right img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: left center;
+    }
+
+    .tl-hero-left {
+        position: relative;
+        z-index: 1;
+        background: transparent;
+        min-height: 440px;
+        padding: 60px 32px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .tl-hero-title-block {
+        padding: 0;
+        flex: 0 0 auto;
+    }
+
+    /* ─── Bridge: keep 65/35, reduce padding ─── */
+    .tl-bridge-left {
+        padding: 60px 32px;
+    }
+
+    /* ─── Inversion: keep 35/65, reduce padding ─── */
+    .tl-inv-text-col {
+        padding: 60px 32px;
+    }
+
+    /* ─── Inputs: stay 2×2 ─── */
+    .tl-inputs-grid {
+        gap: 36px 28px;
+    }
+
+    /* ─── Stats: 2 columns ─── */
+    .tl-stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px 32px;
+    }
+
+    /* ─── Imagine: 35 image / 65 text, right image hidden ─── */
+    .tl-imagine {
+        grid-template-columns: 35% 65%;
+    }
+
+    .tl-imagine-col {
+        padding: 60px 32px;
+    }
+
+    .tl-imagine-img--right {
+        display: none;
+    }
+}
+
+/* ============================================================
+   Responsive — mobile (≤ 600px)
+   ============================================================ */
+@media (max-width: 600px) {
+
+    .tl-sticky-bar {
+        padding: 0 20px;
+    }
+
+    /* Hero: tighter on small screens */
+    .tl-hero-left {
+        min-height: 360px;
+        padding: 48px 20px;
+    }
+
+    /* ─── Bridge: stack, mobile image at bottom ─── */
+    .tl-bridge {
+        grid-template-columns: 1fr;
+    }
+
+    .tl-bridge-right {
+        display: none;
+    }
+
+    .tl-bridge-left {
+        padding: 48px 20px;
+    }
+
+    .tl-bridge-mobile-img {
+        display: block;
+        width: 100%;
+    }
+
+    .tl-bridge-mobile-img img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    /* ─── Inversion: stack, mobile image at top with overlay heading ─── */
+    .tl-inversion {
+        grid-template-columns: 1fr;
+    }
+
+    .tl-inv-img-col {
+        display: none;
+    }
+
+    .tl-inv-mobile-top {
+        display: block;
+        position: relative;
+        width: 100%;
+    }
+
+    .tl-inv-mobile-img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .tl-inv-mobile-overlay {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 52%;
+        background: linear-gradient(to right, transparent, rgba(69, 135, 197, 0.88));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 20px 20px 20px 16px;
+    }
+
+    .tl-inv-mobile-h2 {
+        font-size: clamp(1.1rem, 5vw, 1.4rem);
+        font-weight: 700;
+        color: var(--tl-yellow);
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        margin-bottom: 8px;
+    }
+
+    .tl-inv-mobile-sub {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--color-dark-blue);
+        line-height: 1.2;
+        margin: 0;
+    }
+
+    /* Hide original h2/sub in text col — shown in mobile overlay above */
+    .tl-inv-text-col .tl-article-h2,
+    .tl-inv-text-col .tl-article-sub {
+        display: none;
+    }
+
+    .tl-inv-text-col {
+        padding: 48px 20px;
+    }
+
+    .tl-pull-figure {
+        padding-left: 52px;
+    }
+
+    .tl-pull-quote-icon {
+        width: 36px;
+    }
+
+    .tl-white-section {
+        padding: 60px 0;
+    }
+
+    .tl-col,
+    .tl-col--wide {
+        padding: 0 20px;
+    }
+
+    /* Inputs: single column on smallest screens */
+    .tl-inputs-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    /* Stats: keep 2 columns even on smallest screens */
+    .tl-stats {
+        padding: 60px 20px;
+    }
+
+    .tl-stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px 16px;
+    }
+
+    /* ─── Imagine: text + mobile image at bottom ─── */
+    .tl-imagine {
+        display: block;
+    }
+
+    .tl-imagine-img {
+        display: none;
+    }
+
+    .tl-imagine-col {
+        padding: 48px 20px;
+    }
+
+    .tl-imagine-mobile-img {
+        display: block;
+        width: 100%;
+    }
+
+    .tl-imagine-mobile-img img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+}
+
+/* ============================================================
+   Reduced motion
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+    .tl-progress { transition: none; }
+}

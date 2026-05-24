@@ -7,18 +7,18 @@
 (function () {
     'use strict';
 
-    var track = document.getElementById('posterTrack');
+    const track = document.getElementById('posterTrack');
     if (!track) return;
 
-    var REAL_COUNT  = 7;     // actual poster items (not clones)
-    var GAP_PX      = 8;     // must match CSS gap on .cs-poster-track
-    var INTERVAL_MS = 5000;  // ms between auto-advances
-    var EASE        = 'transform 0.55s cubic-bezier(0.4, 0, 0.2, 1)';
+    const REAL_COUNT  = 7;     // actual poster items (not clones)
+    const GAP_PX      = 8;     // must match CSS gap on .cs-poster-track
+    const INTERVAL_MS = 5000;  // ms between auto-advances
+    const EASE        = 'transform 0.55s cubic-bezier(0.4, 0, 0.2, 1)';
 
-    var current       = 0;
-    var animating     = false;
-    var timer         = null;
-    var reducedMotion = !!(window.matchMedia &&
+    let current       = 0;
+    let animating     = false;
+    let timer         = null;
+    const reducedMotion = !!(window.matchMedia &&
                            window.matchMedia('(prefers-reduced-motion: reduce)').matches);
 
     /* --- helpers ------------------------------------------ */
@@ -91,14 +91,16 @@
         }
     });
 
-    /* --- pause on hover / focus --------------------------- */
+    /* --- pause on hover / focus / button ------------------ */
 
-    var carousel = track.closest
+    const carousel = track.closest
         ? track.closest('.cs-poster-carousel')
         : track.parentNode;
 
+    let userPaused = false;  // true when the pause button is toggled on
+
     function stopTimer()  { clearInterval(timer); timer = null; }
-    function startTimer() { if (!timer) timer = setInterval(advance, INTERVAL_MS); }
+    function startTimer() { if (!timer && !userPaused) timer = setInterval(advance, INTERVAL_MS); }
 
     if (carousel) {
         carousel.addEventListener('mouseenter', stopTimer);
@@ -107,11 +109,26 @@
         carousel.addEventListener('focusout',   startTimer);
     }
 
-    /* --- swipe (touch) ------------------------------------ */
-    var swipeStartX  = null;
-    var SWIPE_MIN_PX = 40;
+    // Pause/play toggle button (WCAG 2.2.2)
+    const pauseBtn = document.getElementById('posterPause');
+    if (pauseBtn) {
+        pauseBtn.addEventListener('click', function () {
+            userPaused = !userPaused;
+            pauseBtn.classList.toggle('is-paused', userPaused);
+            pauseBtn.setAttribute('aria-label', userPaused ? 'Play poster carousel' : 'Pause poster carousel');
+            if (userPaused) {
+                stopTimer();
+            } else {
+                startTimer();
+            }
+        });
+    }
 
-    var swipeTarget = carousel || track;
+    /* --- swipe (touch) ------------------------------------ */
+    let swipeStartX  = null;
+    const SWIPE_MIN_PX = 40;
+
+    const swipeTarget = carousel || track;
 
     swipeTarget.addEventListener('touchstart', function (e) {
         swipeStartX = e.changedTouches[0].clientX;
@@ -119,7 +136,7 @@
 
     swipeTarget.addEventListener('touchend', function (e) {
         if (swipeStartX === null) return;
-        var dx = e.changedTouches[0].clientX - swipeStartX;
+        const dx = e.changedTouches[0].clientX - swipeStartX;
         swipeStartX = null;
         if (Math.abs(dx) < SWIPE_MIN_PX) return;
         stopTimer();
@@ -130,6 +147,19 @@
         }
         startTimer();
     }, { passive: true });
+
+    /* --- recalculate position on resize ------------------- */
+    // After a resize the item width changes, so the stored pixel offset is
+    // stale. Snap the track to the correct position (no animation) so the
+    // next auto-advance starts from the right place.
+
+    let resizeTimer = null;
+    window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () {
+            moveTo(current, false);
+        }, 100);
+    });
 
     /* --- go ----------------------------------------------- */
     startTimer();
