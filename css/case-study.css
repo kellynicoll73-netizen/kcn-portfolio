@@ -81,6 +81,7 @@
     background-color: var(--color-dark-blue);
     width: 100%;
     padding: 72px 0;
+    position: relative; /* ensures callout paints on top of any overflowing content above it */
 }
 
 .cs-callout-inner {
@@ -435,16 +436,31 @@
     align-items: stretch;
 }
 
-.cs-collage-left .cs-img-placeholder {
-    height: 100%;
-    aspect-ratio: unset;
-    min-height: 480px;
+/* Signpost column: absolutely positioned so it does NOT define the
+   grid row height — that job belongs to the nametag/passport column.
+   overflow: visible lets the post extend below the section boundary. */
+.cs-collage-left {
+    position: relative;
+    overflow: visible;
 }
 
-/* Signpost shows full image without side cropping */
+.cs-collage-left .cs-img-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    aspect-ratio: unset;
+    min-height: unset;
+    overflow: visible; /* override global overflow:hidden so post bleeds down */
+}
+
+/* Signpost: full column width, natural height — no cropping at top or sides */
 .cs-collage-left img {
-    object-fit: contain;
-    object-position: center;
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: unset;
 }
 
 .cs-collage-right {
@@ -453,8 +469,12 @@
     gap: 8px;
 }
 
+/* Nametag and passport: equal-height rows sized by their 4:3 asset dimensions */
 .cs-collage-right .cs-img-placeholder {
     width: 100%;
+    flex: none;
+    aspect-ratio: 4 / 3;
+    height: auto;
 }
 
 /* ============================================================
@@ -1062,12 +1082,6 @@
 
     .cs-stat-number {
         font-size: 3.5rem;
-    }
-
-    .cs-collage-left .cs-img-placeholder {
-        height: auto;
-        min-height: unset;
-        aspect-ratio: 2 / 3;
     }
 
     .cs-photo-grid {

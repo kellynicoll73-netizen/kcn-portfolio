@@ -5,8 +5,8 @@
 
 /* Design tokens (TL-specific additions) */
 :root {
-    --tl-yellow:       #ffb600;
-    --tl-tangerine:    #ff9900;
+    --tl-yellow:       #ffb500;
+    --tl-tangerine:    #ef8f00;
     --tl-sticky-h:     28px;
     --tl-bridge-grey:  #2d2d2d;
 }
@@ -256,18 +256,20 @@
 }
 
 .tl-inv-img-col {
-    background-color: var(--color-light-blue);
+    background: linear-gradient(to right,
+        var(--tl-tangerine) 23.86%,
+        var(--tl-yellow) 23.86%
+    );
     overflow: hidden;
     position: relative;
 }
 
 .tl-inv-img-col img {
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
+    height: auto;
     display: block;
 }
 
