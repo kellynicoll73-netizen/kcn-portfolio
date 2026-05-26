@@ -4,8 +4,57 @@
    matching the 43px carousel offset on the homepage.
    ============================================================ */
 .cs-main {
-    padding-top: calc(var(--nav-height) + var(--nav-offset) + 43px);
+    padding-top: calc(var(--nav-height) + var(--nav-offset) + 43px + 28px);
     background-color: var(--color-white);
+}
+
+/* ============================================================
+   Reading progress bar + sticky section label
+   Shared with thought-leadership pages; progress line uses
+   the case-study accent colour rather than TL yellow.
+   ============================================================ */
+.tl-sticky-bar {
+    position: fixed;
+    top: calc(var(--nav-height) + var(--nav-offset));
+    left: 0;
+    right: 0;
+    height: 28px;
+    background-color: var(--color-white);
+    border-bottom: 1px solid var(--color-light-grey);
+    display: flex;
+    align-items: center;
+    padding: 0 32px;
+    z-index: 90;
+    overflow: hidden;
+    border-bottom-color: transparent;
+    transition: border-color 0.2s ease;
+}
+
+.tl-sticky-bar--scrolled {
+    border-bottom-color: var(--color-light-grey);
+}
+
+.tl-sticky-section {
+    font-size: 10px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-mid-grey);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tl-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--color-light-blue);
+    z-index: 1;
+    pointer-events: none;
+    transition: width 0.1s linear;
 }
 
 /* ============================================================
@@ -958,7 +1007,11 @@
    ============================================================ */
 @media (max-width: 960px) {
     .cs-main {
-        padding-top: calc(var(--nav-height) + var(--nav-offset));
+        padding-top: calc(var(--nav-height) + var(--nav-offset) + 28px);
+    }
+
+    .tl-sticky-bar {
+        padding: 0 20px;
     }
 
     .cs-hero-inner {

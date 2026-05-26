@@ -16,6 +16,11 @@
 
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
+    <div class="tl-sticky-bar" id="tlStickyBar" aria-hidden="true">
+        <span class="tl-sticky-section" id="tlStickySection"></span>
+        <div class="tl-progress" id="tlProgress" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+
     <nav class="site-nav" aria-label="Main navigation">
         <a href="../index.html" class="nav-identity" aria-label="Kelly Nicoll — home">
             <span class="nav-name">Kelly Nicoll</span><span class="nav-sep" aria-hidden="true"> | </span><span class="nav-descriptor">Creative Director and Brand Strategist</span>
@@ -49,11 +54,11 @@
             </li>
             <li>
                 <span class="nav-pipe" aria-hidden="true">|</span>
-                <a href="#">About me</a>
+                <a href="../about.html">About me</a>
             </li>
             <li>
                 <span class="nav-pipe" aria-hidden="true">|</span>
-                <a href="#">Get in touch</a>
+                <a href="../contact.html">Get in touch</a>
             </li>
         </ul>
     </nav>
@@ -63,7 +68,7 @@
         <!-- ======================================================= -->
         <!--  HERO                                                     -->
         <!-- ======================================================= -->
-        <section class="cs-hero" aria-label="Partners' Conference — case study introduction" style="background-image: url('../assets/partners-conference/kcn-portfolio-partners-conference-herobanner.jpg')">
+        <section class="cs-hero" aria-label="Partners' Conference — case study introduction" data-section="Partners&#8217; Conference" style="background-image: url('../assets/partners-conference/kcn-portfolio-partners-conference-herobanner.jpg')">
             <div class="cs-hero-inner">
                 <span class="cs-category">Creative Direction | Event &amp; Experience Design | Authentic Cultural Integration</span>
                 <h1 class="cs-title">Elevating our experience</h1>
@@ -76,7 +81,7 @@
         <!-- =======================================================
              SECTION 1 — THE CHALLENGE
              ======================================================= -->
-        <section class="cs-grid cs-section" aria-labelledby="challenge-title">
+        <section class="cs-grid cs-section" aria-labelledby="challenge-title" data-section="The challenge">
 
             <div class="cs-left">
                 <h2 class="cs-section-title" id="challenge-title">The challenge</h2>
@@ -116,7 +121,7 @@
         <!-- =======================================================
              SECTION 2 — STRATEGIC APPROACH
              ======================================================= -->
-        <section class="cs-grid cs-section" aria-labelledby="approach-title">
+        <section class="cs-grid cs-section" aria-labelledby="approach-title" data-section="Strategic approach">
 
             <div class="cs-left">
                 <h2 class="cs-section-title" id="approach-title">Strategic approach</h2>
@@ -282,7 +287,7 @@
         <!-- =======================================================
              SECTION 3 — IMPLEMENTATION AND DELIVERY
              ======================================================= -->
-        <section class="cs-grid cs-section" aria-labelledby="execution-title">
+        <section class="cs-grid cs-section" aria-labelledby="execution-title" data-section="Implementation and delivery">
 
             <div class="cs-left">
                 <h2 class="cs-section-title" id="execution-title">Implementation and delivery</h2>
@@ -361,7 +366,7 @@
         <!-- =======================================================
              SECTION 4 — RESULTS
              ======================================================= -->
-        <section class="cs-grid cs-section" aria-labelledby="outcomes-title">
+        <section class="cs-grid cs-section" aria-labelledby="outcomes-title" data-section="Results">
 
             <div class="cs-left">
                 <h2 class="cs-section-title" id="outcomes-title">Results</h2>
@@ -405,7 +410,7 @@
                     <li><strong>Earning trust at every level:</strong> CEO-level creative reviews, Indigenous community partnership protocols and vendor briefings—all running in parallel, all requiring a different kind of confidence-building simultaneously.</li>
                 </ul>
 
-                <a href="#" class="cs-cta"><span style="font-weight:400;">Want to chat?</span> Get in touch!</a>
+                <a href="../contact.html" class="cs-cta"><span style="font-weight:400;">Want to chat?</span> Get in touch!</a>
             </div>
 
             <div class="cs-right">
@@ -422,5 +427,6 @@
 
     <script src="../js/nav.js?v=1"></script>
     <script src="../js/poster-carousel.js?v=3"></script>
+    <script src="../js/reading-progress.js?v=1"></script>
 </body>
 </html>
