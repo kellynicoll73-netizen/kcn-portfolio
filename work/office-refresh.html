@@ -16,6 +16,11 @@
 
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
+    <div class="tl-sticky-bar" id="tlStickyBar" aria-hidden="true">
+        <span class="tl-sticky-section" id="tlStickySection"></span>
+        <div class="tl-progress" id="tlProgress" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+
     <nav class="site-nav" aria-label="Main navigation">
         <a href="../index.html" class="nav-identity" aria-label="Kelly Nicoll — home">
             <span class="nav-name">Kelly Nicoll</span><span class="nav-sep" aria-hidden="true"> | </span><span class="nav-descriptor">Creative Director and Brand Strategist</span>
@@ -49,11 +54,11 @@
             </li>
             <li>
                 <span class="nav-pipe" aria-hidden="true">|</span>
-                <a href="#">About me</a>
+                <a href="../about.html">About me</a>
             </li>
             <li>
                 <span class="nav-pipe" aria-hidden="true">|</span>
-                <a href="#">Get in touch</a>
+                <a href="../contact.html">Get in touch</a>
             </li>
         </ul>
     </nav>
@@ -63,7 +68,7 @@
         <!-- ======================================================= -->
         <!--  HERO                                                     -->
         <!-- ======================================================= -->
-        <section class="cs-hero" aria-label="The Golden Thread — case study introduction" style="background-image: url('../assets/office-refresh/kcn-portfolio-office-refresh-herobanner.jpg')">
+        <section class="cs-hero" aria-label="The Golden Thread — case study introduction" data-section="The Golden Thread" style="background-image: url('../assets/office-refresh/kcn-portfolio-office-refresh-herobanner.jpg')">
             <div class="cs-hero-inner">
                 <span class="cs-category">Brand Integration and Activation | Physical Space Branding | Accessibility Advocacy</span>
                 <h1 class="cs-title">The golden thread</h1>
@@ -86,7 +91,7 @@
         <!-- =======================================================
              SECTION 1 — THE CHALLENGE
              ======================================================= -->
-        <section class="cs-grid cs-section" aria-labelledby="challenge-title">
+        <section class="cs-grid cs-section" aria-labelledby="challenge-title" data-section="The challenge">
 
             <div class="cs-left">
                 <h2 class="cs-section-title" id="challenge-title">The challenge</h2>
@@ -143,7 +148,7 @@
         <!-- =======================================================
              SECTION 2 — STRATEGIC APPROACH
              ======================================================= -->
-        <section class="cs-grid cs-section" aria-labelledby="approach-title">
+        <section class="cs-grid cs-section" aria-labelledby="approach-title" data-section="Strategic approach">
 
             <div class="cs-left">
                 <h2 class="cs-section-title" id="approach-title">Strategic approach</h2>
@@ -243,7 +248,7 @@
         <!-- =======================================================
              SECTION 3 — VISUAL LANGUAGE SYSTEM DEVELOPMENT
              ======================================================= -->
-        <section class="cs-grid cs-section" aria-labelledby="visual-title">
+        <section class="cs-grid cs-section" aria-labelledby="visual-title" data-section="From philosophy to finished space">
 
             <div class="cs-left">
                 <h2 class="cs-section-title" id="visual-title">From philosophy to finished space</h2>
@@ -286,7 +291,7 @@
         <!-- =======================================================
              CALLOUT — ACCESSIBILITY, INCLUSION AND CULTURAL LEADERSHIP
              ======================================================= -->
-        <section class="cs-callout" aria-labelledby="access-title">
+        <section class="cs-callout" aria-labelledby="access-title" data-section="Accessibility, inclusion and cultural leadership">
             <div class="cs-callout-inner">
 
                 <h2 class="cs-callout-title" id="access-title">Accessibility, inclusion and cultural leadership</h2>
@@ -316,7 +321,7 @@
         <!-- =======================================================
              SECTION 4 — IMPACT AND OUTCOMES
              ======================================================= -->
-        <section class="cs-grid cs-section" aria-labelledby="outcomes-title">
+        <section class="cs-grid cs-section" aria-labelledby="outcomes-title" data-section="Impact and outcomes">
 
             <div class="cs-left">
                 <h2 class="cs-section-title" id="outcomes-title">Impact and outcomes</h2>
@@ -364,7 +369,7 @@
 
                 <p class="cs-footnote">* All awards were applied for—and won—by the design team at M Moser, but I am proud to have been part of the client-side team co-creating and supporting these projects and celebrate the award-winning results we achieved together.</p>
 
-                <a href="#" class="cs-cta"><span style="font-weight:400;">Want to chat?</span> Get in touch!</a>
+                <a href="../contact.html" class="cs-cta"><span style="font-weight:400;">Want to chat?</span> Get in touch!</a>
             </div>
 
             <div class="cs-right">
@@ -382,5 +387,6 @@
     </footer>
 
     <script src="../js/nav.js?v=1"></script>
+    <script src="../js/reading-progress.js?v=1"></script>
 </body>
 </html>

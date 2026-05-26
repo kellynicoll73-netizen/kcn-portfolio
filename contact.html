@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get in touch with Kelly Nicoll — Senior Creative, Brand and Experience Leader.">
+    <meta property="og:title" content="Get in touch | Kelly Nicoll">
+    <meta property="og:description" content="Senior Creative, Brand and Experience Leader. Let's continue the conversation.">
+    <meta property="og:type" content="website">
+    <title>Get in touch | Kelly Nicoll</title>
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+    <link rel="stylesheet" href="css/styles.css?v=32">
+    <link rel="stylesheet" href="css/case-study.css?v=76">
+    <link rel="stylesheet" href="css/contact.css?v=1">
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html" class="nav-identity" aria-label="Kelly Nicoll — home">
+            <span class="nav-name">Kelly Nicoll</span><span class="nav-sep" aria-hidden="true"> | </span><span class="nav-descriptor">Creative Director and Brand Strategist</span>
+        </a>
+        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open navigation menu">
+            <svg class="icon-menu" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="22" height="22">
+                <line x1="3" y1="6"  x2="21" y2="6"  stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="3" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <svg class="icon-close" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="22" height="22">
+                <line x1="4" y1="4"  x2="20" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="20" y1="4" x2="4"  y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </button>
+        <ul class="nav-links" id="navLinks" role="list">
+            <li>
+                <span class="nav-pipe" aria-hidden="true">|</span>
+                <a href="thinking/brand-excitement.html">My thinking</a>
+            </li>
+            <li class="has-dropdown">
+                <span class="nav-pipe" aria-hidden="true">|</span>
+                <a href="#">My work</a>
+                <ul class="nav-dropdown" role="list">
+                    <li><a href="work/partners-conference.html">Partners&#8217; Conference</a></li>
+                    <li><a href="work/office-refresh.html">Office Refresh</a></li>
+                    <li><a href="work/trust-roadmap.html">Trust Roadmap</a></li>
+                    <li><a href="work/consumer-insights.html">Consumer Insights</a></li>
+                    <li><a href="work/camp-pwc.html">Camp PwC</a></li>
+                </ul>
+            </li>
+            <li>
+                <span class="nav-pipe" aria-hidden="true">|</span>
+                <a href="about.html">About me</a>
+            </li>
+            <li>
+                <span class="nav-pipe" aria-hidden="true">|</span>
+                <a href="contact.html" aria-current="page">Get in touch</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="contact-main" id="main-content">
+
+        <section class="cs-grid contact-section" aria-labelledby="contact-heading">
+
+            <!-- ── Left column: headline ── -->
+            <div class="cs-left contact-intro-col">
+                <h1 class="contact-h1" id="contact-heading">
+                    Thanks for<br>stopping by.<br>
+                    <span class="contact-h1-sub">Let&#8217;s start a<br>conversation.</span>
+                </h1>
+            </div>
+
+            <!-- ── Right column: form ── -->
+            <div class="cs-right contact-form-col">
+
+                <form
+                    action="https://formspree.io/f/xjgzaaya"
+                    method="POST"
+                    class="contact-form"
+                    novalidate
+                >
+                    <input type="hidden" name="_subject" value="New message from your portfolio">
+                    <input type="hidden" name="_next" value="thanks.html">
+
+                    <div class="contact-field">
+                        <label class="contact-label" for="name">Name</label>
+                        <input
+                            class="contact-input"
+                            type="text"
+                            id="name"
+                            name="name"
+                            autocomplete="name"
+                            required
+                        >
+                    </div>
+
+                    <div class="contact-field">
+                        <label class="contact-label" for="email">Email</label>
+                        <input
+                            class="contact-input"
+                            type="email"
+                            id="email"
+                            name="email"
+                            autocomplete="email"
+                            required
+                        >
+                    </div>
+
+                    <div class="contact-field">
+                        <label class="contact-label" for="company">
+                            Company <span class="contact-optional">(optional)</span>
+                        </label>
+                        <input
+                            class="contact-input"
+                            type="text"
+                            id="company"
+                            name="company"
+                            autocomplete="organization"
+                        >
+                    </div>
+
+                    <div class="contact-field">
+                        <label class="contact-label" for="message">Message</label>
+                        <textarea
+                            class="contact-input contact-textarea"
+                            id="message"
+                            name="message"
+                            rows="6"
+                            required
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="cs-cta contact-submit">Send message</button>
+
+                </form>
+
+            </div><!-- /.contact-form-col -->
+
+        </section>
+
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <p>&#169; 2026 Kelly Nicoll &nbsp;&#183;&nbsp; <a href="https://www.linkedin.com/in/kellynicoll" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+    </footer>
+
+    <script src="js/nav.js?v=1"></script>
+
+</body>
+</html>

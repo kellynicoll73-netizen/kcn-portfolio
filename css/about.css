@@ -1,0 +1,160 @@
+/* ============================================================
+   About — Page wrapper
+   No hero banner, so padding-top is nav height only
+   (overrides the +43px cs-main adds for hero alignment)
+   ============================================================ */
+.about-main {
+    padding-top: calc(var(--nav-height) + var(--nav-offset));
+    background-color: var(--color-white);
+    min-height: 100vh;
+}
+
+/* ============================================================
+   About — Section (reuses cs-grid 35/65 split)
+   ============================================================ */
+.about-section {
+    background-color: var(--color-white);
+}
+
+/* ============================================================
+   About — Left column: headshot
+   ============================================================ */
+.about-img-col {
+    padding: 60px 32px 60px 32px;
+}
+
+
+.about-img-wrap picture,
+.about-img-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 1833 / 2292;
+    object-fit: cover;
+}
+
+/* ============================================================
+   About — Right column: bio content
+   ============================================================ */
+.about-content {
+    padding-top: 60px;
+    padding-bottom: 80px;
+}
+
+.about-h1 {
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-weight: 700;
+    color: var(--color-dark-blue);
+    line-height: 1.1;
+    margin-bottom: 24px;
+}
+
+.about-body {
+    font-size: 0.9375rem;
+    line-height: var(--lh-body);
+    color: var(--color-near-black);
+    margin-bottom: 24px;
+}
+
+.about-body:last-of-type {
+    margin-bottom: 0;
+}
+
+/* ============================================================
+   About — Social links row
+   ============================================================ */
+.about-social-links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.about-social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 20px;
+    border: 1.5px solid var(--color-light-blue);
+    color: var(--color-light-blue);
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.2;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.about-social-btn:hover {
+    background-color: var(--color-light-blue);
+    color: var(--color-white);
+}
+
+.about-social-btn:focus-visible {
+    outline: 2px solid var(--color-dark-blue);
+    outline-offset: 3px;
+}
+
+.about-social-btn svg {
+    flex-shrink: 0;
+}
+
+/* ============================================================
+   About — CTA button
+   Sits below the social links with tighter top margin
+   ============================================================ */
+.about-cta {
+    margin-top: 16px;
+}
+
+/* ============================================================
+   About — Responsive: tablet (≤ 960px)
+   ============================================================ */
+@media (max-width: 960px) {
+    .about-img-col {
+        padding: 40px 0 0;
+    }
+
+    .about-img-wrap {
+        position: static;
+    }
+
+    .about-img-wrap picture,
+    .about-img-wrap img {
+        aspect-ratio: 1833 / 1219;
+        max-width: 100%;
+    }
+
+    .about-content {
+        padding-top: 32px;
+        padding-bottom: 60px;
+    }
+}
+
+/* ============================================================
+   About — Responsive: mobile (≤ 600px)
+   ============================================================ */
+@media (max-width: 600px) {
+    .about-img-col {
+        padding: 32px 0 0;
+    }
+
+    .about-img-wrap picture,
+    .about-img-wrap img {
+        max-width: 100%;
+    }
+
+    .about-content {
+        padding-top: 28px;
+        padding-bottom: 48px;
+    }
+
+    .about-h1 {
+        font-size: 1.75rem;
+    }
+
+    .about-social-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}

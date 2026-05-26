@@ -16,6 +16,11 @@
 
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
+    <div class="tl-sticky-bar" id="tlStickyBar" aria-hidden="true">
+        <span class="tl-sticky-section" id="tlStickySection"></span>
+        <div class="tl-progress" id="tlProgress" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+
     <nav class="site-nav" aria-label="Main navigation">
         <a href="../index.html" class="nav-identity" aria-label="Kelly Nicoll — home">
             <span class="nav-name">Kelly Nicoll</span><span class="nav-sep" aria-hidden="true"> | </span><span class="nav-descriptor">Creative Director and Brand Strategist</span>
@@ -49,18 +54,18 @@
             </li>
             <li>
                 <span class="nav-pipe" aria-hidden="true">|</span>
-                <a href="#">About me</a>
+                <a href="../about.html">About me</a>
             </li>
             <li>
                 <span class="nav-pipe" aria-hidden="true">|</span>
-                <a href="#">Get in touch</a>
+                <a href="../contact.html">Get in touch</a>
             </li>
         </ul>
     </nav>
 
     <main class="cs-main" id="main-content">
 
-        <section class="cs-hero" aria-label="Camp PwC — case study introduction" style="background-image: url('../assets/camp-pwc/kcn-portfolio-camp-pwc-herobanner.jpg')">
+        <section class="cs-hero" aria-label="Camp PwC — case study introduction" data-section="Camp PwC" style="background-image: url('../assets/camp-pwc/kcn-portfolio-camp-pwc-herobanner.jpg')">
             <div class="cs-hero-inner">
                 <span class="cs-category">Event &amp; Experience Design | Creative Direction | Cross-functional Team Leadership</span>
                 <h1 class="cs-title">Adventure awaits: Camp PwC</h1>
@@ -80,7 +85,7 @@
         <!-- =======================================================
              SECTION 1 — THE TRAILHEAD
              ======================================================= -->
-        <section class="cs-grid cs-section" aria-labelledby="trailhead-title">
+        <section class="cs-grid cs-section" aria-labelledby="trailhead-title" data-section="The trailhead">
 
             <div class="cs-left">
                 <h2 class="cs-section-title" id="trailhead-title">The trailhead</h2>
@@ -104,7 +109,7 @@
         <!-- =======================================================
              SECTION 2 — FINDING OUR COMPASS
              ======================================================= -->
-        <section class="cs-grid cs-section" aria-labelledby="compass-title">
+        <section class="cs-grid cs-section" aria-labelledby="compass-title" data-section="Finding our compass">
 
             <div class="cs-left">
                 <h2 class="cs-section-title" id="compass-title">Finding our compass</h2>
@@ -181,7 +186,7 @@
         <!-- =======================================================
              SECTION 3 — SETTING UP CAMP
              ======================================================= -->
-        <section class="cs-grid cs-section" aria-labelledby="camp-title">
+        <section class="cs-grid cs-section" aria-labelledby="camp-title" data-section="Setting up camp">
 
             <div class="cs-left">
                 <h2 class="cs-section-title" id="camp-title">Setting up camp</h2>
@@ -233,7 +238,7 @@
         <!-- =======================================================
              SECTION 4 — EARNING OUR BADGES
              ======================================================= -->
-        <section class="cs-grid cs-section" aria-labelledby="badges-title">
+        <section class="cs-grid cs-section" aria-labelledby="badges-title" data-section="Earning our badges">
 
             <div class="cs-left">
                 <h2 class="cs-section-title" id="badges-title">Earning our badges</h2>
@@ -283,7 +288,7 @@
                     <li><strong>Production innovation:</strong> The laser-cut adhesive achievement badge solution turned a budget limitation into an engagement advantage, exceeding the original concept in both quality and impact</li>
                 </ul>
 
-                <a href="#" class="cs-cta"><span style="font-weight:400;">Want to chat?</span> Get in touch!</a>
+                <a href="../contact.html" class="cs-cta"><span style="font-weight:400;">Want to chat?</span> Get in touch!</a>
             </div>
 
             <div class="cs-right">
@@ -316,5 +321,6 @@
     </footer>
 
     <script src="../js/nav.js?v=1"></script>
+    <script src="../js/reading-progress.js?v=1"></script>
 </body>
 </html>

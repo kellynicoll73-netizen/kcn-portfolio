@@ -1,0 +1,162 @@
+/* ============================================================
+   Contact — Page wrapper
+   ============================================================ */
+.contact-main {
+    padding-top: calc(var(--nav-height) + var(--nav-offset));
+    background-color: var(--color-white);
+    min-height: 100vh;
+}
+
+/* ============================================================
+   Contact — Section
+   ============================================================ */
+.contact-section {
+    background-color: var(--color-white);
+}
+
+/* ============================================================
+   Contact — Left column: headline
+   ============================================================ */
+.contact-intro-col {
+    padding: 60px 32px 60px 32px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.contact-h1 {
+    font-size: clamp(1.625rem, 2.75vw, 2.25rem);
+    font-weight: 700;
+    color: var(--color-dark-blue);
+    line-height: 1.15;
+}
+
+.contact-h1-sub {
+    display: block;
+    margin-top: 0.5em;
+    color: var(--color-light-blue);
+    font-weight: 400;
+}
+
+/* ============================================================
+   Contact — Right column: form
+   ============================================================ */
+.contact-form-col {
+    padding-top: 60px;
+    padding-bottom: 80px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* ============================================================
+   Contact — Field group
+   ============================================================ */
+.contact-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.contact-label {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-mid-grey);
+}
+
+.contact-optional {
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 0.6875rem;
+}
+
+.contact-input {
+    width: 100%;
+    font-family: inherit;
+    font-size: 0.9375rem;
+    color: var(--color-near-black);
+    background-color: var(--color-white);
+    border: 1.5px solid var(--color-light-grey);
+    padding: 10px 14px;
+    transition: border-color 0.15s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 0;
+}
+
+.contact-input:focus {
+    outline: none;
+    border-color: var(--color-light-blue);
+}
+
+.contact-input::placeholder {
+    color: #b0b0b0;
+}
+
+.contact-textarea {
+    resize: vertical;
+    min-height: 140px;
+    line-height: var(--lh-body);
+}
+
+/* ============================================================
+   Contact — Submit button
+   ============================================================ */
+.contact-got-it {
+    color: var(--color-light-blue);
+    margin-bottom: 16px;
+}
+
+.contact-submit {
+    align-self: flex-start;
+    margin-top: 8px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+/* ============================================================
+   Contact — Responsive: tablet (≤ 960px)
+   ============================================================ */
+@media (max-width: 960px) {
+    .contact-intro-col {
+        padding: 40px 32px 0;
+        align-items: flex-start;
+    }
+
+    .contact-form-col {
+        padding-top: 32px;
+        padding-bottom: 60px;
+    }
+}
+
+/* ============================================================
+   Contact — Responsive: mobile (≤ 600px)
+   ============================================================ */
+@media (max-width: 600px) {
+    .contact-intro-col {
+        padding: 32px 24px 0;
+    }
+
+    .contact-form-col {
+        padding-top: 28px;
+        padding-bottom: 48px;
+    }
+
+    .contact-h1 {
+        font-size: 1.5rem;
+    }
+
+    .contact-submit {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+}
