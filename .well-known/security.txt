@@ -1,0 +1,4 @@
+Contact: https://kellynicoll.ca/contact
+Expires: 2027-05-25T00:00:00.000Z
+Canonical: https://kellynicoll.ca/.well-known/security.txt
+Preferred-Languages: en
