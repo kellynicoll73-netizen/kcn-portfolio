@@ -195,6 +195,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;      /* vertically centre the clip div */
+    position: relative;           /* anchors the abs-positioned pause button */
 }
 
 /* Dedicated overflow clip — plain block so it reliably contains the
