@@ -623,10 +623,11 @@
 }
 
 .cs-callout-body {
-    font-size: 0.875rem;
+    font-size: 1rem;
     color: rgba(255, 255, 255, 0.85);
     line-height: var(--lh-body);
     margin-bottom: 10px;
+    max-width: 70ch;
 }
 
 .cs-callout-body strong {
@@ -637,22 +638,24 @@
     list-style: disc;
     padding-left: 20px;
     margin-bottom: 8px;
+    max-width: 70ch;
 }
 
 .cs-callout-bullets li {
-    font-size: 0.875rem;
+    font-size: 1rem;
     color: rgba(255, 255, 255, 0.85);
     line-height: var(--lh-body);
     margin-bottom: 8px;
 }
 
 .cs-callout-result {
-    font-size: 0.875rem;
+    font-size: 1rem;
     color: var(--color-white);
     line-height: var(--lh-body);
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     padding-top: 20px;
     margin-top: 24px;
+    max-width: 70ch;
 }
 
 .cs-callout-result strong {
