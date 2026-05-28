@@ -50,10 +50,11 @@
 }
 
 .about-body {
-    font-size: 0.9375rem;
+    font-size: 1rem;
     line-height: var(--lh-body);
     color: var(--color-near-black);
-    margin-bottom: 24px;
+    margin-bottom: 32px;
+    max-width: 70ch;
 }
 
 .about-body:last-of-type {

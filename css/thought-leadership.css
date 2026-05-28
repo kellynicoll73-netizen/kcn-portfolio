@@ -72,7 +72,7 @@
     grid-template-columns: 42% 58%;
     min-height: 560px;
     background-color: var(--color-dark-blue);
-    padding-bottom: 80px;
+    padding-bottom: 24px;
 }
 
 .tl-hero-left {
@@ -230,10 +230,11 @@
 }
 
 .tl-bridge-body {
-    font-size: 0.9375rem;
+    font-size: 1rem;
     color: rgba(255, 255, 255, 0.88);
     line-height: var(--lh-body);
-    margin-bottom: 16px;
+    margin-bottom: 24px;
+    max-width: 70ch;
 }
 
 .tl-bridge-body:last-child {
@@ -312,10 +313,11 @@
 }
 
 .tl-inv-body p {
-    font-size: 0.9375rem;
+    font-size: 1rem;
     color: rgba(255, 255, 255, 0.88);
     line-height: var(--lh-body);
-    margin-bottom: 18px;
+    margin-bottom: 24px;
+    max-width: 70ch;
 }
 
 .tl-inv-body p:last-child {
@@ -357,17 +359,19 @@
 }
 
 .tl-body-lead {
-    font-size: 1.0625rem;
+    font-size: 1.1875rem;
     color: var(--color-near-black);
     line-height: var(--lh-body);
-    margin-bottom: 18px;
+    margin-bottom: 28px;
+    max-width: 70ch;
 }
 
 .tl-body {
-    font-size: 0.9375rem;
+    font-size: 1rem;
     color: var(--color-near-black);
     line-height: var(--lh-body);
-    margin-bottom: 16px;
+    margin-bottom: 24px;
+    max-width: 70ch;
 }
 
 .tl-body:last-child {
@@ -421,9 +425,10 @@
 }
 
 .tl-input-body {
-    font-size: 0.9375rem;
+    font-size: 1rem;
     color: var(--color-near-black);
     line-height: var(--lh-body);
+    max-width: 70ch;
 }
 
 /* ============================================================
@@ -440,11 +445,12 @@
 }
 
 .tl-stats-conclusion {
-    font-size: 0.9375rem;
+    font-size: 1rem;
     color: var(--color-near-black);
     line-height: var(--lh-body);
     margin-top: 20px;
     margin-bottom: 0;
+    max-width: 70ch;
 }
 
 .tl-stats-conclusion strong {
@@ -569,10 +575,11 @@
 }
 
 .tl-imagine-body {
-    font-size: 0.9375rem;
+    font-size: 1rem;
     color: var(--color-near-black);
     line-height: var(--lh-body);
-    margin-bottom: 16px;
+    margin-bottom: 24px;
+    max-width: 70ch;
 }
 
 .tl-imagine-body:last-of-type {
