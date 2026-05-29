@@ -166,7 +166,7 @@
 }
 
 .tl-article-sub {
-    font-size: clamp(1rem, 1.4vw, 1.15rem);
+    font-size: 1.1875rem;
     color: var(--color-light-blue);
     line-height: 1.2;
     margin-bottom: 32px;
@@ -324,14 +324,15 @@
     margin-bottom: 0;
 }
 
-.tl-business-case {
-    font-size: 1rem !important;
-    color: var(--color-white) !important;
-    padding: 24px 28px !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    margin-top: 40px !important;
-    margin-bottom: 0 !important;
-    line-height: var(--lh-body) !important;
+.tl-inv-body p.tl-business-case {
+    font-size: 1rem;
+    color: var(--color-white);
+    padding: 24px 28px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 40px;
+    margin-bottom: 0;
+    line-height: var(--lh-body);
+    max-width: none;
 }
 
 .tl-business-case strong {
@@ -417,7 +418,7 @@
 }
 
 .tl-input-title {
-    font-size: 1.0625rem;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--color-dark-blue);
     line-height: 1.2;
