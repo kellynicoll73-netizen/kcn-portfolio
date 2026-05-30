@@ -725,6 +725,26 @@
 }
 
 /* ============================================================
+   Case Study — Right column with photo credit
+   Flex column so CSS order can flip caption above/below the
+   image at different breakpoints.
+   Desktop (> 960px): caption below image (natural DOM order).
+   Tablet/mobile (≤ 960px): caption above image via order: -1.
+   ============================================================ */
+.cs-right--with-credit {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 960px) {
+    .cs-right--with-credit .cs-caption {
+        order: -1;
+        margin-top: 0;
+        margin-bottom: 12px;
+    }
+}
+
+/* ============================================================
    Case Study — Stat block (top of results section)
    ============================================================ */
 .cs-stats {
