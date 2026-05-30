@@ -176,7 +176,8 @@
    Case Study — Callout variant: poster carousel (50/50)
    Left column = sliding conveyor of portrait posters (no crop).
    Right column = text.
-   Stays side-by-side down to 600px; stacks only on mobile.
+   Side-by-side on desktop; stacks to single column at ≤ 960px
+   with text above and carousel below.
    ============================================================ */
 .cs-callout--poster {
     display: grid;
@@ -207,6 +208,26 @@
     width: 100%;
 }
 
+/* Feathered left/right edges — desktop only; disabled at ≤ 960px */
+.cs-poster-clip::before,
+.cs-poster-clip::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 15%;
+    z-index: 2;
+    pointer-events: none;
+}
+.cs-poster-clip::before {
+    left: 0;
+    background: linear-gradient(to right, var(--color-dark-blue), transparent);
+}
+.cs-poster-clip::after {
+    right: 0;
+    background: linear-gradient(to left, var(--color-dark-blue), transparent);
+}
+
 /* Track: flex row of all posters + clones; overflows right of clip div */
 .cs-poster-track {
     display: flex;
@@ -214,7 +235,7 @@
     /* Transition applied by JS — not here — so there's no animation on load */
 }
 
-/* Each poster: exactly half the track width minus half the gap */
+/* Each poster: 2-up on desktop with feathered edges; 2-up at ≤ 960px via MQ (no feather) */
 .cs-poster-item {
     flex: 0 0 calc(50% - 4px);
     min-width: 0;
@@ -1059,17 +1080,30 @@
         padding: 48px 6%;
     }
 
-    /* Poster carousel: stays 50/50 at tablet — posters remain a readable size */
+    /* Poster carousel: stack at tablet — carousel above, text below; 2 posters visible */
     .cs-callout--poster {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .cs-poster-carousel {
-        padding: 40px 20px;       /* symmetric at tablet */
+        grid-template-columns: 1fr;
     }
 
     .cs-callout--poster .cs-callout-text {
+        order: 2;
         padding: 40px 6% 40px 5%;
+    }
+
+    .cs-poster-carousel {
+        order: 1;
+        padding: 40px 20px;
+    }
+
+    /* 3 posters visible at tablet; overridden to 2 at ≤ 600px */
+    .cs-poster-item {
+        flex: 0 0 calc((100% - 16px) / 3);
+    }
+
+    /* No feathering below desktop */
+    .cs-poster-clip::before,
+    .cs-poster-clip::after {
+        display: none;
     }
 
     .cs-translations-grid {
@@ -1224,17 +1258,22 @@
         padding: 40px 20px;
     }
 
-    /* Poster carousel: stack on mobile, carousel above text */
+    /* Poster carousel: stacking and order already set at ≤ 960px */
     .cs-callout--poster {
         grid-template-columns: 1fr;
     }
 
     .cs-poster-carousel {
-        padding: 28px 20px;
+        padding: 12px 20px 28px;
     }
 
     .cs-callout--poster .cs-callout-text {
         padding: 32px 20px;
+    }
+
+    /* 2 posters on phone (override the 3-up set at ≤ 960px) */
+    .cs-poster-item {
+        flex: 0 0 calc(50% - 4px);
     }
 }
 
