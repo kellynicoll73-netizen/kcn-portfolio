@@ -225,7 +225,6 @@ ul {
     align-items: start;
     align-content: start;
     background-color: var(--color-light-grey);
-    min-height: 100vh;
     padding-top: calc(var(--nav-height) + var(--nav-offset));
 }
 
