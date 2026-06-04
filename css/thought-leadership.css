@@ -201,6 +201,7 @@
     align-items: flex-end;
     justify-content: flex-end;
     overflow: hidden;
+    padding: 24px 0;
 }
 
 .tl-bridge-right img {
