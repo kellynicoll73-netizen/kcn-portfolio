@@ -246,20 +246,21 @@ ul {
     letter-spacing: -0.02em;
 }
 
-.hero-title {
-    font-size: clamp(1rem, 1.4vw, 1.2rem);
+.hero-tagline {
+    font-size: clamp(1.125rem, 1.6vw, 1.375rem);
     font-weight: 400;
     color: var(--color-light-blue);
     line-height: 1.2;
-    max-width: 58ch;
+    margin-top: -12px;
+    max-width: 51ch;
 }
 
-.hero-tagline {
-    font-size: 1rem;
-    font-weight: 400;
+.hero-title {
+    font-size: 0.8rem;
+    font-weight: 500;
     color: var(--color-mid-grey);
     line-height: 1.2;
-    max-width: 70ch;
+    max-width: 88ch;
 }
 
 .hero-availability {
@@ -291,8 +292,9 @@ ul {
 /* Right column */
 .hero-right {
     background-color: var(--color-white);
+    align-self: stretch;
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
     padding-top: 43px;
     padding-right: 32px;
     padding-bottom: 32px;
@@ -305,6 +307,8 @@ ul {
 .carousel {
     position: relative;
     width: 100%;
+    flex: 1;
+    min-height: 0;
     /* Natural image ratio — images are 2554×1750 */
     aspect-ratio: 2554 / 1750;
     /* Never taller than the visible area below the nav + top padding */
@@ -505,6 +509,7 @@ ul {
     }
 
     .carousel {
+        flex: none;
         /* Let it fill the width; height follows aspect-ratio naturally */
         max-height: none;
     }
@@ -617,6 +622,10 @@ ul {
     .hero-left {
         padding: 60px 20px 28px;
         gap: 18px;
+    }
+
+    .hero-tagline {
+        margin-top: 0;
     }
 
     /* Carousel: match hero-left side padding so edges align */
