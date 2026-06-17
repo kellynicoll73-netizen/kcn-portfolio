@@ -274,6 +274,7 @@
     line-height: 1.05;
     letter-spacing: -0.02em;
     margin-bottom: 16px;
+    max-width: 22ch;
 }
 
 .cs-subtitle {
@@ -282,6 +283,7 @@
     color: var(--color-light-blue);
     line-height: 1.2;
     margin-bottom: 20px;
+    max-width: 56ch;
 }
 
 .cs-meta {
@@ -326,6 +328,7 @@
     line-height: 1.05;
     letter-spacing: -0.02em;
     margin-bottom: 10px;
+    max-width: 33ch;
 }
 
 .cs-section-subtitle {
@@ -334,7 +337,7 @@
     color: var(--color-light-blue);
     line-height: 1.2;
     margin-bottom: 32px;
-    max-width: 70ch;
+    max-width: 56ch;
 }
 
 /* Lead paragraph — first paragraph in each section */
@@ -343,7 +346,7 @@
     color: var(--color-near-black);
     line-height: var(--lh-body);
     margin-bottom: 28px;
-    max-width: 70ch;
+    max-width: 62ch;
 }
 
 /* Standard body text */
@@ -620,6 +623,7 @@
     color: var(--color-white);
     line-height: 1.2;
     margin-bottom: 20px;
+    max-width: 64ch;
 }
 
 /* Poster callout — section-level heading size + vertical centring */
@@ -628,6 +632,7 @@
     letter-spacing: -0.02em;
     line-height: 1.05;
     margin-bottom: 24px;
+    max-width: 33ch;
 }
 
 .cs-callout--poster .cs-callout-text {

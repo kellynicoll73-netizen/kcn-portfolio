@@ -251,6 +251,7 @@ ul {
     font-weight: 400;
     color: var(--color-light-blue);
     line-height: 1.2;
+    max-width: 58ch;
 }
 
 .hero-tagline {
@@ -258,6 +259,7 @@ ul {
     font-weight: 400;
     color: var(--color-mid-grey);
     line-height: 1.2;
+    max-width: 70ch;
 }
 
 .hero-availability {
@@ -381,6 +383,7 @@ ul {
     color: var(--color-white);
     line-height: 1.2;
     margin-bottom: 10px;
+    max-width: 37ch;
 }
 
 .slide-role {

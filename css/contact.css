@@ -28,6 +28,7 @@
     font-weight: 700;
     color: var(--color-dark-blue);
     line-height: 1.15;
+    max-width: 31ch;
 }
 
 .contact-h1-sub {

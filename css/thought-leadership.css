@@ -111,6 +111,7 @@
     line-height: 1.05;
     letter-spacing: -0.02em;
     margin-bottom: 20px;
+    max-width: 19ch;
 }
 
 .tl-hero-title strong {
@@ -122,6 +123,7 @@
     color: var(--tl-yellow);
     line-height: 1.2;
     margin-bottom: 10px;
+    max-width: 56ch;
 }
 
 .tl-hero-tagline {
@@ -163,6 +165,7 @@
     line-height: 1.1;
     letter-spacing: -0.02em;
     margin-bottom: 10px;
+    max-width: 28ch;
 }
 
 .tl-article-sub {
@@ -170,7 +173,7 @@
     color: var(--color-light-blue);
     line-height: 1.2;
     margin-bottom: 32px;
-    max-width: 70ch;
+    max-width: 56ch;
 }
 
 /* ============================================================
@@ -305,6 +308,7 @@
     margin: 0;
     padding: 0 0 0 20px;
     border-left: 3px solid var(--tl-yellow);
+    max-width: 47ch;
 }
 
 .tl-inv-sub {
@@ -313,7 +317,7 @@
     color: var(--color-dark-blue);
     line-height: 1.2;
     margin-bottom: 40px;
-    max-width: 70ch;
+    max-width: 58ch;
 }
 
 .tl-inv-body p {
