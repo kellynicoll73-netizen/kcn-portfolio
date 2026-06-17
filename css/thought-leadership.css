@@ -170,6 +170,7 @@
     color: var(--color-light-blue);
     line-height: 1.2;
     margin-bottom: 32px;
+    max-width: 70ch;
 }
 
 /* ============================================================
@@ -228,6 +229,7 @@
     color: var(--color-white);
     margin-top: 0;
     margin-bottom: 12px;
+    max-width: 70ch;
 }
 
 .tl-bridge-body {
@@ -311,6 +313,7 @@
     color: var(--color-dark-blue);
     line-height: 1.2;
     margin-bottom: 40px;
+    max-width: 70ch;
 }
 
 .tl-inv-body p {

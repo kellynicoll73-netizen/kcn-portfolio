@@ -334,6 +334,7 @@
     color: var(--color-light-blue);
     line-height: 1.2;
     margin-bottom: 32px;
+    max-width: 70ch;
 }
 
 /* Lead paragraph — first paragraph in each section */
@@ -372,6 +373,7 @@
     color: var(--color-near-black);
     margin-top: 24px;
     margin-bottom: 10px;
+    max-width: 70ch;
 }
 
 .cs-bullets {
