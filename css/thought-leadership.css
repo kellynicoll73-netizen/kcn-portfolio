@@ -335,16 +335,28 @@
 .tl-inv-body p.tl-business-case {
     font-size: 1rem;
     color: var(--color-white);
+    margin-bottom: 0;
+    line-height: var(--lh-body);
+}
+
+/* Shared boxed callout — bordered emphasis box on dark backgrounds.
+   Used by the bridge "This is that bridge" and inversion "business case" paragraphs. */
+.tl-callout-box {
     padding: 24px 28px;
     border: 1px solid rgba(255, 255, 255, 0.3);
     margin-top: 40px;
-    margin-bottom: 0;
-    line-height: var(--lh-body);
-    max-width: none;
+    max-width: 70ch;
 }
 
-.tl-business-case strong {
+.tl-callout-box strong {
     color: var(--tl-yellow);
+}
+
+/* Bridge sits in a flex column where margins don't collapse, so the
+   preceding paragraph's 24px bottom margin stacks with the box's top margin.
+   Reduce to 16px (24 + 16 = 40px) to match the inversion box's collapsed gap. */
+.tl-bridge-body.tl-callout-box {
+    margin-top: 16px;
 }
 
 /* ============================================================
