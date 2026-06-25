@@ -179,23 +179,19 @@
    Side-by-side on desktop; stacks to single column at ≤ 960px
    with text above and carousel below.
    ============================================================ */
+/* Stacked: full-width poster band on top, centred text column below.
+   Reuses the base .cs-callout (navy bg) and .cs-callout-inner (centred column). */
 .cs-callout--poster {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0;
-    align-items: stretch;
-    gap: 0;
+    padding: 0;                   /* band sits flush at top; inner column carries its own padding */
 }
 
-/* Left column: dark blue background, padding, vertical centring.
-   Does NOT do overflow clipping — flex/grid containers don't reliably
-   clip transform'd children, so that job belongs to cs-poster-clip. */
+/* Full-width poster band. Height-driven: the clip sets a fixed band height and
+   each portrait poster scales to that height, so the number of posters visible
+   reflows naturally with viewport width (no per-breakpoint count).
+   Does NOT do overflow clipping — that job belongs to cs-poster-clip. */
 .cs-poster-carousel {
     background-color: var(--color-dark-blue);
-    padding: 48px 32px;           /* symmetric 32px frame left and right */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;      /* vertically centre the clip div */
+    padding: 60px 0 0;            /* mirrors the 60px top padding of standard sections (.cs-left/.cs-right) */
     position: relative;           /* anchors the abs-positioned pause button */
 }
 
@@ -206,6 +202,7 @@
     position: relative;
     overflow: hidden;
     width: 100%;
+    height: clamp(280px, 38vh, 420px);   /* the band's capped height — drives poster size + count */
 }
 
 /* Feathered left/right edges — desktop only; disabled at ≤ 960px */
@@ -228,28 +225,34 @@
     background: linear-gradient(to left, var(--color-dark-blue), transparent);
 }
 
-/* Track: flex row of all posters + clones; overflows right of clip div */
+/* Track: flex row of all posters + clones, full band height; overflows right of clip div */
 .cs-poster-track {
     display: flex;
     gap: 8px;
+    height: 100%;
     /* Transition applied by JS — not here — so there's no animation on load */
 }
 
-/* Each poster: 2-up on desktop with feathered edges; 2-up at ≤ 960px via MQ (no feather) */
+/* Each poster: full band height; width follows the 490:850 portrait ratio,
+   so however many fit across the band is the number shown (auto-reflow). */
 .cs-poster-item {
-    flex: 0 0 calc(50% - 4px);
+    flex: 0 0 auto;
+    height: 100%;
     min-width: 0;
 }
 
-/* Placeholder tint — visible against dark blue background */
+/* Placeholder: full height; width derived from the inline aspect-ratio (490/850) */
 .cs-poster-item .cs-img-placeholder {
     background-color: transparent;
+    height: 100%;
+    width: auto;
 }
 
-/* Actual image: full width, natural height, no crop */
+/* Actual image: fills the height-driven placeholder, no crop (source is exactly 490:850) */
 .cs-poster-item img {
+    height: 100%;
     width: 100%;
-    height: auto;
+    object-fit: cover;
     display: block;
 }
 
@@ -626,19 +629,22 @@
     max-width: 64ch;
 }
 
-/* Poster callout — section-level heading size + vertical centring */
+/* Poster callout — centred text column below the band.
+   Reuses .cs-callout-inner (width: 60%; margin: 0 auto) and the standard
+   .cs-callout-title / .cs-callout-body styling; only the vertical padding
+   is added here since the parent .cs-callout--poster has padding: 0. */
+/* This callout functions as a full section, so its headline matches the
+   section-title size (.cs-section-title), kept white for the navy background. */
 .cs-callout--poster .cs-callout-title {
     font-size: clamp(1.6rem, 2.5vw, 2.1rem);
-    letter-spacing: -0.02em;
     line-height: 1.05;
+    letter-spacing: -0.02em;
     margin-bottom: 24px;
     max-width: 33ch;
 }
 
-.cs-callout--poster .cs-callout-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.cs-callout--poster .cs-callout-inner {
+    padding: 56px 0 72px;
 }
 
 .cs-callout-label {
@@ -1107,24 +1113,14 @@
         padding: 48px 6%;
     }
 
-    /* Poster carousel: stack at tablet — carousel above, text below; 2 posters visible */
-    .cs-callout--poster {
-        grid-template-columns: 1fr;
+    /* Poster band: height-driven count carries over; just trim band height
+       and the text column's padding at tablet. */
+    .cs-poster-clip {
+        height: clamp(240px, 34vh, 360px);
     }
 
-    .cs-callout--poster .cs-callout-text {
-        order: 2;
-        padding: 40px 6% 40px 5%;
-    }
-
-    .cs-poster-carousel {
-        order: 1;
-        padding: 40px 20px;
-    }
-
-    /* 3 posters visible at tablet; overridden to 2 at ≤ 600px */
-    .cs-poster-item {
-        flex: 0 0 calc((100% - 16px) / 3);
+    .cs-callout--poster .cs-callout-inner {
+        padding: 44px 0 52px;
     }
 
     /* No feathering below desktop */
@@ -1285,22 +1281,13 @@
         padding: 40px 20px;
     }
 
-    /* Poster carousel: stacking and order already set at ≤ 960px */
-    .cs-callout--poster {
-        grid-template-columns: 1fr;
+    /* Poster band on phone: shorter band, tighter text padding */
+    .cs-poster-clip {
+        height: clamp(220px, 46vw, 320px);
     }
 
-    .cs-poster-carousel {
-        padding: 12px 20px 28px;
-    }
-
-    .cs-callout--poster .cs-callout-text {
-        padding: 32px 20px;
-    }
-
-    /* 2 posters on phone (override the 3-up set at ≤ 960px) */
-    .cs-poster-item {
-        flex: 0 0 calc(50% - 4px);
+    .cs-callout--poster .cs-callout-inner {
+        padding: 36px 0 44px;
     }
 }
 
