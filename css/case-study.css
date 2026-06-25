@@ -134,7 +134,8 @@
 }
 
 .cs-callout-inner {
-    width: 60%;
+    width: 100%;
+    max-width: var(--measure);   /* column = the text measure, so body fills it and stays visually centred */
     margin: 0 auto;
 }
 

@@ -12,6 +12,7 @@
     --nav-height:       60px;
     --nav-offset:       30px;
     --lh-body:          1.5;
+    --measure:          70ch;   /* shared line-length / centred-column content width — matches the 70ch body text cap */
 }
 
 /* ============================================================

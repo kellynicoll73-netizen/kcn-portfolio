@@ -368,7 +368,7 @@
 }
 
 .tl-col {
-    max-width: 740px;
+    max-width: calc(var(--measure) + 64px);   /* measure + 32px side padding each side, so content = the measure */
     margin: 0 auto;
     padding: 0 32px;
 }
@@ -461,7 +461,7 @@
 }
 
 .tl-stats-intro {
-    max-width: 740px;
+    max-width: var(--measure);   /* column = the text measure (no side padding; section provides the gutter) */
     margin: 0 auto 60px;
 }
 
