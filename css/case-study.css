@@ -1072,10 +1072,6 @@
         padding-top: calc(var(--nav-height) + var(--nav-offset) + 28px);
     }
 
-    .tl-sticky-bar {
-        padding: 0 20px;
-    }
-
     .cs-hero-inner {
         width: 88%;
     }
@@ -1138,6 +1134,12 @@
    Case Study — Responsive: mobile (≤ 600px)
    ============================================================ */
 @media (max-width: 600px) {
+    /* Sticky bar left padding tracks the nav, which drops to 20px at ≤600px
+       (.site-nav / .nav-identity) — keeps the section label aligned with the nav. */
+    .tl-sticky-bar {
+        padding: 0 20px;
+    }
+
     .cs-hero {
         min-height: 400px;
     }
